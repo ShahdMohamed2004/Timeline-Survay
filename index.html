@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline Grammar Survey | استبيان الخط الزمني</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f0e8;--card:#fffdf7;--navy:#1c2b4a;--teal:#2a5f5f;--gold:#b8923a;--gold-light:#e8c97a;--soft:#e8e2d5;--text:#2c2c2c;--muted:#7a7060;--danger:#c0392b;--sa:#2a5f5f;--a:#3d8b8b;--n:#8b8b6a;--d:#c0602e;--sd:#8b2020;--s1:#2a5f5f;--s2:#1c2b4a;--s3:#5a3a1a;--s4:#3a1a5a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.site-header{background:var(--navy);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid var(--gold);flex-wrap:wrap;gap:10px;}
+.site-header h1{font-family:'Playfair Display',serif;color:#fff;font-size:1.35rem;}
+.site-header .sub{font-family:'Noto Naskh Arabic',serif;color:var(--gold-light);font-size:.88rem;margin-top:2px;}
+.badge{background:var(--gold);color:var(--navy);border-radius:50px;padding:4px 12px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+.screen{display:none;}.screen.active{display:block;}
+.page-wrap{max-width:680px;margin:46px auto;padding:0 20px;}
+.card{background:var(--card);border-radius:14px;padding:44px 40px;box-shadow:0 6px 30px rgba(28,43,74,.09);border:1px solid var(--soft);}
+@media(max-width:600px){.card{padding:26px 18px;}.page-wrap{margin:24px auto;}}
+.eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.card h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:6px;}
+.ar-title{font-family:'Noto Naskh Arabic',serif;font-size:1.25rem;color:var(--teal);direction:rtl;margin-bottom:22px;}
+.note{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:7px;}
+.ar-note{font-family:'Noto Naskh Arabic',serif;direction:rtl;color:var(--muted);font-size:.88rem;line-height:1.9;margin-bottom:22px;}
+.field-group{margin-bottom:20px;}
+.flabel{display:block;font-size:.76rem;font-weight:700;color:var(--navy);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
+.flabel .ar{font-family:'Noto Naskh Arabic',serif;font-size:.86rem;text-transform:none;letter-spacing:0;direction:rtl;display:block;font-weight:600;color:var(--teal);margin-top:1px;}
+.fhint{font-size:.72rem;color:var(--muted);margin-top:3px;font-style:italic;}
+.fhint.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;}
+input[type="text"],textarea{width:100%;padding:10px 14px;border:1.5px solid var(--soft);border-radius:7px;font-size:.88rem;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:border-color .2s;resize:vertical;}
+input[type="text"]:focus,textarea:focus{outline:none;border-color:var(--teal);}
+textarea{min-height:100px;line-height:1.7;}
+.cklist{display:flex;flex-direction:column;gap:7px;}
+.cklist-2{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+@media(max-width:480px){.cklist-2{grid-template-columns:1fr;}}
+.ckoption{display:flex;align-items:center;gap:9px;padding:9px 14px;border:1.5px solid var(--soft);border-radius:7px;cursor:pointer;font-size:.86rem;background:var(--bg);transition:all .15s;user-select:none;}
+.ckoption:hover{border-color:var(--teal);background:#eef5f5;}
+.ckoption.selected{border-color:var(--teal);background:#eef5f5;}
+.ckoption input{accent-color:var(--teal);width:15px;height:15px;cursor:pointer;}
+.ckoption .ar{font-family:'Noto Naskh Arabic',serif;font-size:.88rem;color:var(--teal);}
+.cond-block{display:none;margin-top:12px;padding:14px;background:#f0ede4;border-radius:7px;border:1px solid var(--soft);}
+.cond-block.show{display:block;}
+.btn{padding:12px 30px;border:none;border-radius:7px;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.btn-primary{background:var(--navy);color:#fff;}.btn-primary:hover{background:var(--teal);}
+.btn-gold{background:var(--gold);color:var(--navy);}.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;border:1.5px solid var(--navy);color:var(--navy);}.btn-outline:hover{background:var(--navy);color:#fff;}
+.btn-danger{background:var(--danger);color:#fff;}
+.btn-sm{padding:7px 16px;font-size:.76rem;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;}
+.prog-wrap{height:5px;background:var(--soft);border-radius:3px;overflow:hidden;margin-bottom:28px;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:3px;transition:width .4s;}
+.sv-wrap{max-width:760px;margin:34px auto;padding:0 20px;}
+.sh{padding:20px 28px;border-radius:11px 11px 0 0;margin-top:28px;}
+.sh.s1{background:var(--s1);}.sh.s2{background:var(--s2);}.sh.s3{background:var(--s3);}.sh.sopen{background:var(--s4);}
+.sh .sn{font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-bottom:4px;}
+.sh h3{font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;}
+.sh .ar-sh{font-family:'Noto Naskh Arabic',serif;color:rgba(255,255,255,.8);font-size:.95rem;direction:rtl;margin-top:2px;}
+.qcard{background:var(--card);border:1px solid var(--soft);padding:24px 28px 20px;border-top:none;}
+.qcard+.qcard{border-top:1px solid var(--soft);}
+.qcard:last-of-type{border-radius:0 0 11px 11px;}
+.qnum{font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.qen{font-size:.94rem;color:var(--navy);font-weight:500;line-height:1.5;margin-bottom:3px;}
+.qar{font-family:'Noto Naskh Arabic',serif;font-size:.9rem;color:var(--teal);direction:rtl;line-height:1.8;margin-bottom:16px;}
+.likert{display:flex;border:1.5px solid var(--soft);border-radius:9px;overflow:hidden;}
+.likert label{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 4px;cursor:pointer;border-right:1px solid var(--soft);transition:all .15s;text-align:center;background:var(--bg);font-size:.65rem;font-weight:600;color:var(--muted);position:relative;}
+.likert label:last-child{border-right:none;}
+.likert label .ar-opt{font-family:'Noto Naskh Arabic',serif;font-size:.66rem;color:var(--muted);direction:rtl;font-weight:400;}
+.likert label input{position:absolute;opacity:0;width:0;height:0;}
+.likert label .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--soft);background:var(--card);transition:all .15s;}
+.likert label:hover{background:#f0ede4;}
+.likert label[data-val="5"].ck{background:var(--sa);color:#fff;}
+.likert label[data-val="4"].ck{background:var(--a);color:#fff;}
+.likert label[data-val="3"].ck{background:var(--n);color:#fff;}
+.likert label[data-val="2"].ck{background:var(--d);color:#fff;}
+.likert label[data-val="1"].ck{background:var(--sd);color:#fff;}
+.likert label.ck .dot{background:#fff;border-color:#fff;}
+.likert label.ck .ar-opt{color:rgba(255,255,255,.8);}
+.oqcard{background:var(--card);border:1px solid var(--soft);padding:26px 28px;border-top:none;}
+.oqcard:last-of-type{border-radius:0 0 11px 11px;}
+.char-c{font-size:.7rem;color:var(--muted);text-align:right;margin-top:4px;}
+.qerr{color:var(--danger);font-size:.73rem;margin-top:6px;display:none;}
+.qerr.show{display:block;}
+.sf{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--soft);flex-wrap:wrap;gap:10px;}
+.sf .cnt{font-size:.78rem;color:var(--muted);}
+.thanks-wrap{max-width:500px;margin:76px auto;padding:0 20px;text-align:center;}
+.ticon{width:72px;height:72px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2rem;}
+.thanks-wrap h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:6px;}
+.ar-ty{font-family:'Noto Naskh Arabic',serif;color:var(--teal);font-size:1.1rem;margin-bottom:16px;direction:rtl;}
+.pwo{position:fixed;inset:0;background:rgba(28,43,74,.93);z-index:9999;display:flex;align-items:center;justify-content:center;}
+.pwbox{background:var(--card);border-radius:14px;padding:40px 36px;max-width:380px;width:90%;text-align:center;}
+.pwbox h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:5px;}
+.pwbox .ar-pw{font-family:'Noto Naskh Arabic',serif;color:var(--teal);direction:rtl;margin-bottom:18px;font-size:.9rem;}
+.pwbox input{width:100%;padding:11px 14px;border:1.5px solid var(--soft);border-radius:7px;font-size:1rem;text-align:center;letter-spacing:.12em;background:var(--bg);margin-bottom:7px;}
+.pwbox input:focus{outline:none;border-color:var(--teal);}
+.pwerr{color:var(--danger);font-size:.76rem;margin-bottom:10px;min-height:16px;}
+/* ── Results wrapper ───────────────────── */
+.rw{max-width:1100px;margin:32px auto;padding:0 24px 60px;}
+.rtitle{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);}
+.rtitle .ar{font-family:'Noto Naskh Arabic',serif;font-size:1.1rem;color:var(--teal);display:block;direction:rtl;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:20px 0;}
+.scard{background:var(--card);border:1px solid var(--soft);border-radius:11px;padding:16px 18px;text-align:center;}
+.scard .val{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--navy);line-height:1;margin-bottom:4px;}
+.scard .lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
+.scard .lar{font-family:'Noto Naskh Arabic',serif;font-size:.76rem;color:var(--teal);direction:rtl;margin-top:1px;}
+.ssg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px;}
+@media(max-width:580px){.ssg{grid-template-columns:1fr;}}
+.sscore{border-radius:11px;padding:16px 18px;color:#fff;}
+.sscore.s1{background:var(--s1);}.sscore.s2{background:var(--s2);}.sscore.s3{background:var(--s3);}
+.sscore .scl{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.78;margin-bottom:4px;}
+.sscore .scv{font-family:'Playfair Display',serif;font-size:1.9rem;line-height:1;}
+.scmax{font-size:.78rem;opacity:.65;}
+.sscore .scar{font-family:'Noto Naskh Arabic',serif;font-size:.8rem;direction:rtl;opacity:.8;margin-top:2px;}
+/* demographic block */
+.demo-blk{background:var(--card);border:1px solid var(--soft);border-radius:11px;padding:18px 20px;margin-bottom:16px;}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+@media(max-width:700px){.demo-grid{grid-template-columns:1fr;}}
+/* Likert card */
+.qres{background:var(--card);border:1px solid var(--soft);border-radius:11px;padding:18px 22px;margin-bottom:14px;}
+.qres .ql{font-size:.83rem;font-weight:600;color:var(--navy);margin-bottom:2px;line-height:1.4;}
+.qres .qlar{font-family:'Noto Naskh Arabic',serif;font-size:.8rem;color:var(--teal);direction:rtl;margin-bottom:12px;line-height:1.8;}
+.lk-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:18px;margin:10px 0 12px;align-items:start;}
+@media(max-width:760px){.lk-grid{grid-template-columns:1fr;}}
+.chart-box{width:100%;overflow:hidden;}
+.chart-box canvas{display:block;width:100%!important;height:190px!important;}
+/* stacked bar */
+.lbar{display:flex;height:22px;border-radius:5px;overflow:hidden;margin:8px 0 4px;}
+.bseg{display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#fff;overflow:hidden;white-space:nowrap;min-width:0;}
+.bseg.sa{background:var(--sa);}.bseg.a{background:var(--a);}.bseg.n{background:var(--n);}.bseg.d{background:var(--d);}.bseg.sd{background:var(--sd);}
+/* qualitative */
+.oac{background:var(--card);border:1px solid var(--soft);border-radius:11px;padding:18px 22px;margin-bottom:14px;}
+.qual-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-bottom:14px;align-items:start;}
+@media(max-width:700px){.qual-grid{grid-template-columns:1fr;}}
+.pie-box{width:100%;overflow:hidden;display:flex;justify-content:center;}
+.pie-box canvas{display:block;width:100%!important;max-width:230px!important;height:200px!important;}
+/* comments */
+.aitem{border-left:3px solid var(--teal);padding:8px 11px;margin-bottom:7px;background:#f5f3ee;border-radius:0 6px 6px 0;}
+.aitem .anm{font-size:.67rem;font-weight:700;color:var(--muted);margin-bottom:3px;display:flex;flex-wrap:wrap;align-items:center;gap:4px;}
+.aitem .atx{font-size:.84rem;color:var(--text);line-height:1.65;}
+.sent-badge{padding:2px 8px;border-radius:20px;font-size:.61rem;font-weight:700;}
+/* interpretation box */
+.interp{margin-top:8px;background:#eef5f5;border-left:3px solid var(--teal);padding:9px 13px;border-radius:0 6px 6px 0;font-size:.75rem;line-height:1.75;}
+/* big table */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:11px;border:1px solid var(--soft);margin-top:12px;}
+table{width:100%;border-collapse:collapse;font-size:.75rem;background:var(--card);}
+thead tr{background:var(--navy);color:#fff;}
+thead th{padding:9px 8px;text-align:left;font-weight:600;font-size:.64rem;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+tbody tr{border-bottom:1px solid var(--soft);}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:nth-child(even){background:#faf8f3;}
+tbody td{padding:7px 8px;}
+/* misc */
+.gb{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.66rem;font-weight:700;}
+.gb.f{background:#fde8f0;color:#9e2a5a;}.gb.m{background:#e8eef8;color:#1a3a7a;}
+.vc{text-align:center;}
+.v5{background:rgba(42,95,95,.15);color:var(--sa);font-weight:700;border-radius:3px;padding:1px 4px;}
+.v4{background:rgba(61,139,139,.12);color:var(--a);font-weight:700;border-radius:3px;padding:1px 4px;}
+.v3{background:rgba(139,139,106,.12);color:#6b6b3a;font-weight:700;border-radius:3px;padding:1px 4px;}
+.v2{background:rgba(192,96,46,.12);color:var(--d);font-weight:700;border-radius:3px;padding:1px 4px;}
+.v1{background:rgba(139,32,32,.12);color:var(--sd);font-weight:700;border-radius:3px;padding:1px 4px;}
+.sc{font-weight:700;color:var(--navy);}
+.tc{background:var(--navy);color:#fff;font-weight:700;}
+.sbadge{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:1px 6px;border-radius:3px;color:#fff;margin-left:4px;vertical-align:middle;}
+.sb1{background:var(--s1);}.sb2{background:var(--s2);}.sb3{background:var(--s3);}
+.rtag{display:inline-block;background:#fff3e0;color:#c05e00;border:1px solid #f0c060;border-radius:3px;padding:1px 6px;font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-left:5px;vertical-align:middle;}
+.sdiv{border:none;border-top:2px solid var(--soft);margin:30px 0 20px;}
+.rsth{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--soft);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.rsth .art{font-family:'Noto Naskh Arabic',serif;font-size:.88rem;color:var(--teal);direction:rtl;font-weight:400;}
+.nodata{text-align:center;padding:50px 20px;color:var(--muted);}
+.sec-lbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:5px;}
+/* export bar */
+.export-bar{background:var(--navy);border-radius:11px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.export-bar .eb-lbl,.export-bar .eb-title{color:#fff;font-size:.78rem;font-weight:700;flex-shrink:0;}
+.export-btn{padding:8px 15px;border:none;border-radius:6px;font-size:.74rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;background:#e8e2d5;color:#1c2b4a;}
+.export-btn:hover{opacity:.82;transform:translateY(-1px);}
+.export-btn.pdf{background:#c0392b;color:#fff;}
+.export-btn.word{background:#2a6ab8;color:#fff;}
+.export-btn.html-save{background:#2a5f5f;color:#fff;}
+.export-btn.html-copy{background:#b8923a;color:#1c2b4a;}
+.xbtn{padding:8px 15px;border:none;border-radius:6px;font-size:.74rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.xbtn:hover{opacity:.82;transform:translateY(-1px);}
+.xbtn.pdf{background:#c0392b;color:#fff;}
+.xbtn.word{background:#2a6ab8;color:#fff;}
+.xbtn.hsave{background:#2a5f5f;color:#fff;}
+.xbtn.hcopy{background:#b8923a;color:#1c2b4a;}
+/* sec-pills for welcome screen */
+.sec-pills{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px;}
+.sec-pill{flex:1;min-width:120px;border-radius:7px;padding:10px 12px;color:#fff;font-size:.76rem;font-weight:600;}
+/* section summary & overall */
+.sec-summary{margin-bottom:16px;}
+.overall-summary{background:var(--card);border:2px solid var(--navy);border-radius:13px;padding:22px 24px;margin-bottom:16px;}
+/* print */
+@media print{
+  .site-header,.pwo,#screen-welcome,#screen-demo,#screen-survey,#screen-thanks,.export-bar,.btn{display:none!important;}
+  #screen-results{display:block!important;}
+  .rw{max-width:100%!important;padding:0!important;margin:0!important;}
+  .qres,.oac,.demo-blk{page-break-inside:avoid;break-inside:avoid;}
+  body{background:#fff!important;}
+  .lk-grid,.demo-grid,.qual-grid{display:block!important;}
+  .lk-grid>*,.demo-grid>*,.qual-grid>*{margin-bottom:12px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div><h1>Timeline Grammar Survey</h1><div class="sub">استبيان الخط الزمني لتدريس القواعد — MSA University</div></div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+    <span class="badge">Graduation Research</span>
+    <button class="btn btn-gold btn-sm" onclick="openResults()">📊 Results | النتائج</button>
+  </div>
+</header>
+
+<!-- PASSWORD OVERLAY -->
+<div id="pwo" class="pwo" style="display:none;">
+  <div class="pwbox">
+    <div style="font-size:1.8rem;margin-bottom:10px;">🔒</div>
+    <h3>Researcher Access Only</h3>
+    <div class="ar-pw">للباحث فقط — أدخل كلمة المرور</div>
+    <input type="password" id="pwi" placeholder="Password…" onkeydown="if(event.key==='Enter')checkPW()">
+    <div class="pwerr" id="pwerr"></div>
+    <div class="btn-row" style="justify-content:center;">
+      <button class="btn btn-primary" onclick="checkPW()">Unlock | دخول</button>
+      <button class="btn btn-outline" onclick="closePW()">Cancel | إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: WELCOME -->
+<div id="screen-welcome" class="screen active">
+  <div class="page-wrap">
+    <div class="card">
+      <div class="eyebrow">Graduation Project Survey · استبيان مشروع التخرج</div>
+      <h2>Timeline in Grammar Teaching</h2>
+      <div class="ar-title">الخط الزمني في تدريس القواعد</div>
+      <p class="note">This survey is part of a graduation research project at MSA University. Your responses are confidential and used for academic purposes only.</p>
+      <div class="ar-note">هذا الاستبيان جزء من مشروع بحث تخرج في جامعة MSA. إجاباتك سرية وتُستخدم لأغراض أكاديمية فقط.</div>
+      <div class="sec-pills">
+        <div class="sec-pill" style="background:var(--teal)">Section A<div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;opacity:.85;margin-top:1px;">البيانات الأساسية</div></div>
+        <div class="sec-pill" style="background:var(--s1)">Section B · Engagement<div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;opacity:.85;margin-top:1px;">التفاعل</div></div>
+        <div class="sec-pill" style="background:var(--s2)">Section C · Satisfaction<div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;opacity:.85;margin-top:1px;">الرضا</div></div>
+        <div class="sec-pill" style="background:var(--s3)">Section D · Tenses<div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;opacity:.85;margin-top:1px;">الأزمنة</div></div>
+        <div class="sec-pill" style="background:var(--s4)">Section E · Open<div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;opacity:.85;margin-top:1px;">مقالي</div></div>
+      </div>
+      <button class="btn btn-primary" onclick="showScreen('demo')">Begin Survey → | ابدأ الاستبيان ←</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: DEMOGRAPHICS -->
+<div id="screen-demo" class="screen">
+  <div class="page-wrap">
+    <div class="card">
+      <div class="eyebrow">Section A · القسم الأول</div>
+      <h2>Demographic Information</h2>
+      <div class="ar-title">البيانات الأساسية</div>
+
+      <div class="field-group">
+        <label class="flabel">1. Student ID | الرقم التعريفي<span class="ar">الرقم التعريفي</span></label>
+        <input type="text" id="d-id" placeholder="e.g. 269876">
+        <div class="fhint">هذا مجرد مثال — أدخل رقمك التعريفي الخاص | This is just an example — enter your own ID</div>
+      </div>
+
+      <div class="field-group">
+        <label class="flabel">2. Gender | الجنس<span class="ar">الجنس *</span></label>
+        <div class="cklist" id="grp-gender">
+          <label class="ckoption" onclick="selR('grp-gender',this,'gender','M')"><input type="radio" name="gender" value="M">Male <span class="ar">ذكر</span></label>
+          <label class="ckoption" onclick="selR('grp-gender',this,'gender','F')"><input type="radio" name="gender" value="F">Female <span class="ar">أنثى</span></label>
+        </div>
+        <div class="qerr" id="e-gender">⚠ Please select an option.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="flabel">3. Age | العمر<span class="ar">العمر</span></label>
+        <div class="cklist" id="grp-age">
+          <label class="ckoption" onclick="selR('grp-age',this,'age','18-20')"><input type="radio" name="age" value="18-20">18–20 <span class="ar">من 18 إلى 20</span></label>
+          <label class="ckoption" onclick="selR('grp-age',this,'age','21-23')"><input type="radio" name="age" value="21-23">21–23 <span class="ar">من 21 إلى 23</span></label>
+          <label class="ckoption" onclick="selR('grp-age',this,'age','24+')"><input type="radio" name="age" value="24+">24 or above <span class="ar">24 أو أكثر</span></label>
+        </div>
+        <div class="qerr" id="e-age">⚠ Please select an option.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="flabel">4. Year of Study | السنة الدراسية<span class="ar">السنة الدراسية</span></label>
+        <div class="cklist cklist-2" id="grp-year">
+          <label class="ckoption" onclick="selR('grp-year',this,'year','1')"><input type="radio" name="year" value="1">First Year <span class="ar">الأولى</span></label>
+          <label class="ckoption" onclick="selR('grp-year',this,'year','2')"><input type="radio" name="year" value="2">Second Year <span class="ar">الثانية</span></label>
+          <label class="ckoption" onclick="selR('grp-year',this,'year','3')"><input type="radio" name="year" value="3">Third Year <span class="ar">الثالثة</span></label>
+          <label class="ckoption" onclick="selR('grp-year',this,'year','4')"><input type="radio" name="year" value="4">Fourth Year <span class="ar">الرابعة</span></label>
+        </div>
+        <div class="qerr" id="e-year">⚠ Please select an option.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="flabel">5. Faculty | الكلية<span class="ar">الكلية</span></label>
+        <div class="cklist" id="grp-faculty">
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Languages')"><input type="radio" name="faculty" value="Languages">Faculty of Languages <span class="ar">كلية اللغات</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','MassCom')"><input type="radio" name="faculty" value="MassCom">Faculty of Mass Communication <span class="ar">كلية الإعلام</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Management')"><input type="radio" name="faculty" value="Management">Faculty of Management Sciences <span class="ar">كلية الإدارة</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Engineering')"><input type="radio" name="faculty" value="Engineering">Faculty of Engineering <span class="ar">كلية الهندسة</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','CS')"><input type="radio" name="faculty" value="CS">Faculty of Computer Science <span class="ar">كلية علوم الحاسب</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Pharmacy')"><input type="radio" name="faculty" value="Pharmacy">Faculty of Pharmacy <span class="ar">كلية الصيدلة</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Biotech')"><input type="radio" name="faculty" value="Biotech">Faculty of Biotechnology <span class="ar">كلية التكنولوجيا الحيوية</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Dentistry')"><input type="radio" name="faculty" value="Dentistry">Faculty of Dentistry <span class="ar">كلية طب الأسنان</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Arts')"><input type="radio" name="faculty" value="Arts">Faculty of Arts and Design <span class="ar">كلية الفنون والتصميم</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','PhysTherapy')"><input type="radio" name="faculty" value="PhysTherapy">Faculty of Physical Therapy <span class="ar">كلية العلاج الطبيعي</span></label>
+          <label class="ckoption" onclick="selR('grp-faculty',this,'faculty','Nutrition')"><input type="radio" name="faculty" value="Nutrition">Faculty of Nutrition and Food Technology <span class="ar">كلية التغذية وعلوم الأغذية</span></label>
+        </div>
+        <div class="qerr" id="e-faculty">⚠ Please select your faculty.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="flabel">6. Major / Pathway (if applicable)<span class="ar">التخصص أو المسار (إن وجد)</span></label>
+        <input type="text" id="d-major" placeholder="e.g. TEFL, Translation, Linguistics… / لغويات، ترجمة…">
+      </div>
+
+      <div class="field-group">
+        <label class="flabel">7. Are you a university student?<span class="ar">هل أنت طالب جامعي؟</span></label>
+        <div class="cklist" id="grp-unis">
+          <label class="ckoption" onclick="selR('grp-unis',this,'unis','yes');document.getElementById('uni-cond').classList.add('show')"><input type="radio" name="unis" value="yes">Yes <span class="ar">نعم</span></label>
+          <label class="ckoption" onclick="selR('grp-unis',this,'unis','no');document.getElementById('uni-cond').classList.remove('show')"><input type="radio" name="unis" value="no">No <span class="ar">لا</span></label>
+        </div>
+        <div class="cond-block" id="uni-cond">
+          <label class="flabel" style="margin-bottom:6px;">University name | اسم الجامعة<span class="ar">اسم الجامعة</span></label>
+          <input type="text" id="d-uniname" placeholder="University name / اسم الجامعة">
+        </div>
+        <div class="qerr" id="e-unis">⚠ Please select an option.</div>
+      </div>
+
+      <p id="derr" style="color:var(--danger);font-size:.8rem;margin-bottom:12px;display:none;">⚠ Please complete all required fields. | من فضلك أكمل جميع الحقول المطلوبة.</p>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="showScreen('welcome')">← Back</button>
+        <button class="btn btn-primary" onclick="submitDemo()">Continue → | متابعة</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: SURVEY -->
+<div id="screen-survey" class="screen">
+  <div class="sv-wrap">
+    <div class="prog-wrap"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+
+    <!-- SECTION B: ENGAGEMENT -->
+    <div class="sh s1"><div class="sn">Section B · القسم الثاني · Q1–5</div><h3>Engagement Level</h3><div class="ar-sh">مستوى التفاعل</div></div>
+    <div class="qcard"><div class="qnum">Q1</div><div class="qen">Using the timeline in grammar lessons increases my level of engagement with the material.</div><div class="qar">استخدام الخط الزمني (التايم لاين) في دروس القواعد يرفع مستوى تفاعلي مع المادة.</div><div class="likert" id="l1"><label data-val="5" onclick="onA(1,5)"><input type="radio" name="q1" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(1,4)"><input type="radio" name="q1" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(1,3)"><input type="radio" name="q1" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(1,2)"><input type="radio" name="q1" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(1,1)"><input type="radio" name="q1" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e1">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <div class="qcard"><div class="qnum">Q2</div><div class="qen">I participate more actively in class activities when a timeline is used in the lesson.</div><div class="qar">أشارك بشكل أكثر نشاطاً في أنشطة الفصل عند استخدام الخط الزمني (التايم لاين) في الدرس.</div><div class="likert" id="l2"><label data-val="5" onclick="onA(2,5)"><input type="radio" name="q2" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(2,4)"><input type="radio" name="q2" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(2,3)"><input type="radio" name="q2" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(2,2)"><input type="radio" name="q2" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(2,1)"><input type="radio" name="q2" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e2">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <!-- Q3 TRAP -->
+    <div class="qcard"><div class="qnum">Q3</div><div class="qen">I find it difficult to stay focused during grammar activities that involve using a timeline.</div><div class="qar">أجد صعوبة في التركيز أثناء أنشطة القواعد التي تتضمن استخدام الخط الزمني (التايم لاين).</div><div class="likert" id="l3"><label data-val="5" onclick="onA(3,5)"><input type="radio" name="q3" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(3,4)"><input type="radio" name="q3" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(3,3)"><input type="radio" name="q3" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(3,2)"><input type="radio" name="q3" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(3,1)"><input type="radio" name="q3" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e3">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <div class="qcard"><div class="qnum">Q4</div><div class="qen">Timeline-based grammar activities make lessons feel more interactive and stimulating.</div><div class="qar">الأنشطة القائمة على الخط الزمني (التايم لاين) تجعل دروس القواعد أكثر تفاعلاً وإثارة.</div><div class="likert" id="l4"><label data-val="5" onclick="onA(4,5)"><input type="radio" name="q4" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(4,4)"><input type="radio" name="q4" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(4,3)"><input type="radio" name="q4" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(4,2)"><input type="radio" name="q4" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(4,1)"><input type="radio" name="q4" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e4">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <!-- Q5 TRAP -->
+    <div class="qcard"><div class="qnum">Q5</div><div class="qen">I would prefer grammar lessons without timelines, as I feel less engaged when they are used.</div><div class="qar">أفضّل دروس القواعد بدون خط زمني (تايم لاين)، لأنني أشعر بتفاعل أقل عند استخدامه.</div><div class="likert" id="l5"><label data-val="5" onclick="onA(5,5)"><input type="radio" name="q5" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(5,4)"><input type="radio" name="q5" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(5,3)"><input type="radio" name="q5" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(5,2)"><input type="radio" name="q5" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(5,1)"><input type="radio" name="q5" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e5">⚠ Please select an answer. | اختر إجابة.</div></div>
+
+    <!-- SECTION C: SATISFACTION -->
+    <div class="sh s2"><div class="sn">Section C · القسم الثالث · Q6–10</div><h3>Satisfaction Level</h3><div class="ar-sh">مستوى الرضا</div></div>
+    <div class="qcard"><div class="qnum">Q6</div><div class="qen">I am satisfied with using the timeline as a method to learn grammar.</div><div class="qar">أنا راضٍ عن استخدام الخط الزمني (التايم لاين) كأسلوب لتعلم القواعد.</div><div class="likert" id="l6"><label data-val="5" onclick="onA(6,5)"><input type="radio" name="q6" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(6,4)"><input type="radio" name="q6" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(6,3)"><input type="radio" name="q6" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(6,2)"><input type="radio" name="q6" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(6,1)"><input type="radio" name="q6" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e6">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <div class="qcard"><div class="qnum">Q7</div><div class="qen">I feel that timelines make grammar lessons more enjoyable overall.</div><div class="qar">أشعر أن الخطوط الزمنية (التايم لاين) تجعل دروس القواعد أكثر متعة بشكل عام.</div><div class="likert" id="l7"><label data-val="5" onclick="onA(7,5)"><input type="radio" name="q7" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(7,4)"><input type="radio" name="q7" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(7,3)"><input type="radio" name="q7" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(7,2)"><input type="radio" name="q7" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(7,1)"><input type="radio" name="q7" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e7">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <!-- Q8 TRAP -->
+    <div class="qcard"><div class="qnum">Q8</div><div class="qen">I do not feel satisfied with my overall experience of learning grammar through timelines.</div><div class="qar">لا أشعر بالرضا عن تجربتي العامة في تعلم القواعد من خلال الخطوط الزمنية (التايم لاين).</div><div class="likert" id="l8"><label data-val="5" onclick="onA(8,5)"><input type="radio" name="q8" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(8,4)"><input type="radio" name="q8" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(8,3)"><input type="radio" name="q8" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(8,2)"><input type="radio" name="q8" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(8,1)"><input type="radio" name="q8" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e8">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <div class="qcard"><div class="qnum">Q9</div><div class="qen">I would recommend the use of timelines in grammar lessons to my peers.</div><div class="qar">أوصي باستخدام الخط الزمني (التايم لاين) في دروس القواعد لزملائي.</div><div class="likert" id="l9"><label data-val="5" onclick="onA(9,5)"><input type="radio" name="q9" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(9,4)"><input type="radio" name="q9" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(9,3)"><input type="radio" name="q9" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(9,2)"><input type="radio" name="q9" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(9,1)"><input type="radio" name="q9" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e9">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <!-- Q10 TRAP -->
+    <div class="qcard"><div class="qnum">Q10</div><div class="qen">I think that learning grammar through timelines is not an effective approach for me.</div><div class="qar">أعتقد أن تعلم القواعد من خلال الخطوط الزمنية (التايم لاين) ليس أسلوباً فعّالاً بالنسبة لي.</div><div class="likert" id="l10"><label data-val="5" onclick="onA(10,5)"><input type="radio" name="q10" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(10,4)"><input type="radio" name="q10" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(10,3)"><input type="radio" name="q10" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(10,2)"><input type="radio" name="q10" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(10,1)"><input type="radio" name="q10" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e10">⚠ Please select an answer. | اختر إجابة.</div></div>
+
+    <!-- SECTION D: TENSES -->
+    <div class="sh s3"><div class="sn">Section D · القسم الرابع · Q11–15</div><h3>Impact on Complex Grammar Tenses</h3><div class="ar-sh">التأثير على أزمنة القواعد المعقدة</div></div>
+    <div class="qcard"><div class="qnum">Q11</div><div class="qen">Using a timeline helps me understand complex grammar tenses more clearly.</div><div class="qar">يساعدني استخدام الخط الزمني (التايم لاين) على فهم أزمنة القواعد المعقدة بوضوح أكبر.</div><div class="likert" id="l11"><label data-val="5" onclick="onA(11,5)"><input type="radio" name="q11" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(11,4)"><input type="radio" name="q11" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(11,3)"><input type="radio" name="q11" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(11,2)"><input type="radio" name="q11" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(11,1)"><input type="radio" name="q11" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e11">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <div class="qcard"><div class="qnum">Q12</div><div class="qen">I can use complex grammar tenses more accurately in writing and speaking after timeline-based lessons.</div><div class="qar">أستطيع استخدام أزمنة القواعد المعقدة بدقة أكبر في الكتابة والكلام بعد الدروس القائمة على الخط الزمني (التايم لاين).</div><div class="likert" id="l12"><label data-val="5" onclick="onA(12,5)"><input type="radio" name="q12" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(12,4)"><input type="radio" name="q12" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(12,3)"><input type="radio" name="q12" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(12,2)"><input type="radio" name="q12" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(12,1)"><input type="radio" name="q12" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e12">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <!-- Q13 TRAP -->
+    <div class="qcard"><div class="qnum">Q13</div><div class="qen">I still struggle with complex grammar tenses even after using timelines in lessons.</div><div class="qar">لا أزال أواجه صعوبة في أزمنة القواعد المعقدة حتى بعد استخدام الخطوط الزمنية (التايم لاين) في الدروس.</div><div class="likert" id="l13"><label data-val="5" onclick="onA(13,5)"><input type="radio" name="q13" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(13,4)"><input type="radio" name="q13" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(13,3)"><input type="radio" name="q13" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(13,2)"><input type="radio" name="q13" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(13,1)"><input type="radio" name="q13" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e13">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <div class="qcard"><div class="qnum">Q14</div><div class="qen">Timelines help me distinguish between different complex grammar tenses more easily.</div><div class="qar">تساعدني الخطوط الزمنية (التايم لاين) على التمييز بين أزمنة القواعد المعقدة المختلفة بسهولة أكبر.</div><div class="likert" id="l14"><label data-val="5" onclick="onA(14,5)"><input type="radio" name="q14" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(14,4)"><input type="radio" name="q14" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(14,3)"><input type="radio" name="q14" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(14,2)"><input type="radio" name="q14" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(14,1)"><input type="radio" name="q14" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e14">⚠ Please select an answer. | اختر إجابة.</div></div>
+    <!-- Q15 TRAP -->
+    <div class="qcard"><div class="qnum">Q15</div><div class="qen">I do not think that timelines have improved my ability to use complex grammar tenses.</div><div class="qar">لا أعتقد أن الخطوط الزمنية (التايم لاين) قد حسّنت قدرتي على استخدام أزمنة القواعد المعقدة.</div><div class="likert" id="l15"><label data-val="5" onclick="onA(15,5)"><input type="radio" name="q15" value="5"><div class="dot"></div>Strongly Agree<div class="ar-opt">أوافق بشدة</div></label><label data-val="4" onclick="onA(15,4)"><input type="radio" name="q15" value="4"><div class="dot"></div>Agree<div class="ar-opt">أوافق</div></label><label data-val="3" onclick="onA(15,3)"><input type="radio" name="q15" value="3"><div class="dot"></div>Neutral<div class="ar-opt">محايد</div></label><label data-val="2" onclick="onA(15,2)"><input type="radio" name="q15" value="2"><div class="dot"></div>Disagree<div class="ar-opt">لا أوافق</div></label><label data-val="1" onclick="onA(15,1)"><input type="radio" name="q15" value="1"><div class="dot"></div>Strongly Disagree<div class="ar-opt">لا أوافق بشدة</div></label></div><div class="qerr" id="e15">⚠ Please select an answer. | اختر إجابة.</div></div>
+
+    <!-- SECTION E: OPEN-ENDED -->
+    <div class="sh sopen"><div class="sn">Section E · القسم الخامس · Q16–17</div><h3>Reflective Open Questions</h3><div class="ar-sh">أسئلة مقالية تأملية</div></div>
+    <!-- Q16: measures perceived potential, student agency, forward-looking improvement ideas -->
+    <div class="oqcard">
+      <div class="qnum">Q16 — Open-ended | مقالي</div>
+      <div class="qen">In your opinion, how could the use of timelines in grammar lessons be improved or further developed to better support your learning?</div>
+      <div class="qar">برأيك، كيف يمكن تحسين أو تطوير استخدام الخط الزمني (التايم لاين) في دروس القواعد لدعم تعلمك بشكل أفضل؟</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-bottom:9px;font-style:italic;">Write at least 2 sentences | اكتب جملتين على الأقل</div>
+      <textarea id="q16" placeholder="Your suggestions… | اقتراحاتك…" oninput="updC(16)" maxlength="600"></textarea>
+      <div class="char-c" id="cc16">0 / 600</div>
+      <div class="qerr" id="e16">⚠ Please write at least a brief response. | اكتب ولو إجابة قصيرة.</div>
+    </div>
+    <!-- Q17: measures barriers, limitations, critical reflection on drawbacks -->
+    <div class="oqcard">
+      <div class="qnum">Q17 — Open-ended | مقالي</div>
+      <div class="qen">What challenges or difficulties, if any, did you face when timelines were used in grammar lessons? Please describe them briefly.</div>
+      <div class="qar">ما التحديات أو الصعوبات التي واجهتها، إن وجدت، عند استخدام الخطوط الزمنية (التايم لاين) في دروس القواعد؟ صفها باختصار.</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-bottom:9px;font-style:italic;">Write at least 2 sentences | اكتب جملتين على الأقل</div>
+      <textarea id="q17" placeholder="Challenges you faced… | التحديات التي واجهتك…" oninput="updC(17)" maxlength="600"></textarea>
+      <div class="char-c" id="cc17">0 / 600</div>
+      <div class="qerr" id="e17">⚠ Please write at least a brief response. | اكتب ولو إجابة قصيرة.</div>
+    </div>
+
+    <div class="sf">
+      <span class="cnt" id="ac">0 / 15 answered</span>
+      <button class="btn btn-primary" onclick="submitSurvey()">Submit Survey ✓ | إرسال الاستبيان</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: THANKS -->
+<div id="screen-thanks" class="screen">
+  <div class="thanks-wrap">
+    <div class="ticon">✓</div>
+    <h2>Thank You!</h2>
+    <div class="ar-ty">شكراً جزيلاً على مشاركتك!</div>
+    <p class="note">Your responses have been recorded. Your participation contributes to improving grammar teaching methods at MSA University.</p>
+    <p class="note" style="font-family:'Noto Naskh Arabic',serif;direction:rtl;margin-top:6px;">تم تسجيل إجاباتك. مشاركتك تساهم في تطوير أساليب تدريس القواعد في جامعة MSA.</p>
+    <div class="btn-row" style="justify-content:center;margin-top:22px;">
+      <button class="btn btn-primary" onclick="nextStudent()">Next Student | الطالب التالي</button>
+      <button class="btn btn-gold" onclick="openResults()">View Results | عرض النتائج</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: RESULTS -->
+<div id="screen-results" class="screen">
+  <div class="rw">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px;">
+      <div><div class="rtitle">Survey Results Dashboard<span class="ar">لوحة النتائج — للباحث فقط 🔒</span></div><div style="color:var(--muted);font-size:.76rem;" id="rts"></div></div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;">
+        <button class="btn btn-outline btn-sm" onclick="showScreen('welcome')">← Back</button>
+      </div>
+    </div>
+    <!-- EXPORT BAR — Researcher only -->
+    <div class="export-bar">
+      <span class="eb-title">📤 Export Results:</span>
+      <button class="export-btn pdf" onclick="exportPDF()">🖨 PDF</button>
+      <button class="export-btn word" onclick="exportWord()">📄 Word</button>
+      <button class="export-btn html-save" onclick="exportHTMLFile()">💾 Save HTML</button>
+      <button class="export-btn html-copy" onclick="exportHTMLCopy()">📋 Copy HTML</button>
+      <button class="export-btn" style="background:#1a7a3a;color:#fff;" onclick="exportCSV()">📊 Export CSV</button>
+      <button class="export-btn" style="background:#5a3a7a;color:#fff;" onclick="importCSV()">📥 Import CSV</button>
+    </div>
+    <!-- DATA MANAGEMENT — static, always present -->
+    <div id="data-mgmt-bar" style="display:none;background:var(--card);border:1px solid var(--soft);border-radius:11px;padding:18px 20px;margin-bottom:16px;">
+      <div style="font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:12px;">🗂 Data Management | إدارة البيانات</div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:8px;">🎯 Delete Single Response by Student ID</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;">
+        <input type="text" id="del-id-input" placeholder="Student ID…" style="max-width:180px;padding:8px 12px;border:1.5px solid var(--soft);border-radius:7px;font-size:.84rem;background:var(--bg);font-family:inherit;">
+        <button onclick="deleteByID()" style="padding:8px 16px;border:none;border-radius:7px;background:#e07b00;color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;font-family:inherit;">🗑 Delete by ID</button>
+        <span id="del-msg" style="font-size:.74rem;font-weight:600;"></span>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--soft);margin-bottom:12px;">
+      <div style="font-size:.76rem;font-weight:700;color:#8b1a1a;margin-bottom:8px;">⚠️ Danger Zone | منطقة الخطر</div>
+      <button onclick="clearAll()" style="padding:10px 22px;border:2px solid #8b1a1a;border-radius:7px;background:#fff;color:#8b1a1a;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit;" onmouseover="this.style.background='#8b1a1a';this.style.color='#fff';" onmouseout="this.style.background='#fff';this.style.color='#8b1a1a';">🗑 Clear ALL Data | مسح كل البيانات</button>
+      <div style="font-size:.68rem;color:var(--muted);margin-top:6px;">سيطلب حفظ نسخة CSV احتياطية أولاً | Will ask to save backup first</div>
+    </div>
+    <div id="rc"></div>
+  </div>
+</div>
+
+
+
+
+<!-- CLEAR ALL CONFIRM MODAL -->
+<div id="clear-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(28,43,74,.85);z-index:10000;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:14px;padding:32px 28px;max-width:400px;width:92%;box-shadow:0 10px 50px rgba(0,0,0,.4);text-align:center;">
+    <div style="font-size:2.2rem;margin-bottom:12px;">⚠️</div>
+    <h3 style="color:#8b1a1a;font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:6px;">Delete ALL Data?</h3>
+    <div style="font-family:'Noto Naskh Arabic',serif;color:#2a5f5f;direction:rtl;margin-bottom:12px;font-size:.95rem;">هل تريد مسح كل البيانات؟</div>
+    <div id="clear-modal-count" style="font-size:.85rem;color:#555;margin-bottom:20px;"></div>
+    <div style="font-size:.82rem;color:#555;margin-bottom:8px;">💾 Save a CSV backup before deleting?</div>
+    <div style="font-family:'Noto Naskh Arabic',serif;color:#7a7060;font-size:.8rem;direction:rtl;margin-bottom:22px;">هل تريد حفظ نسخة احتياطية CSV قبل الحذف؟</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <button onclick="clearAllExecute(true)" style="padding:12px;border:none;border-radius:8px;background:#1a7a3a;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;">💾 Save CSV then Delete | احفظ ثم احذف</button>
+      <button onclick="clearAllExecute(false)" style="padding:12px;border:none;border-radius:8px;background:#8b1a1a;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;">🗑 Delete WITHOUT saving | احذف بدون حفظ</button>
+      <button onclick="document.getElementById('clear-modal').style.display='none'" style="padding:10px;border:1.5px solid #ccc;border-radius:8px;background:#fff;color:#555;font-weight:600;font-size:.85rem;cursor:pointer;font-family:inherit;">Cancel | إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- CSV Import Modal -->
+<div id="csv-import-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:12px;padding:28px 30px;max-width:440px;width:92%;box-shadow:0 8px 40px rgba(0,0,0,.3);">
+    <h3 style="margin:0 0 12px;color:#1c2b4a;font-family:'Playfair Display',serif;">&#128229; Import CSV Data</h3>
+    <p style="font-size:.82rem;color:#888;margin-bottom:14px;">Select a CSV file exported from this survey. Data will be <b>added</b> to existing responses — duplicate IDs are skipped.</p>
+    <input type="file" id="csv-file-input" accept=".csv" style="display:block;margin-bottom:14px;font-size:.82rem;width:100%;">
+    <div id="csv-import-msg" style="font-size:.8rem;min-height:20px;margin-bottom:12px;color:#888;"></div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="processCSVImport()" style="flex:1;background:#2a5f5f;color:#fff;border:none;border-radius:7px;padding:10px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;">Import</button>
+      <button onclick="document.getElementById('csv-import-modal').style.display='none'" style="flex:1;background:#eee;color:#333;border:none;border-radius:7px;padding:10px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>window.onerror=function(msg,src,line,col,err){console.error('JS ERROR:',msg,'line:',line,err);return false;};
+
+const SK='tl_survey_v3';
+const PW='238055';
+const Qs=[
+  {id:1,sec:1,rev:false,en:"Using the timeline in grammar lessons increases my level of engagement with the material.",ar:"استخدام الخط الزمني (التايم لاين) في دروس القواعد يرفع مستوى تفاعلي مع المادة."},
+  {id:2,sec:1,rev:false,en:"I participate more actively in class activities when a timeline is used in the lesson.",ar:"أشارك بشكل أكثر نشاطاً في أنشطة الفصل عند استخدام الخط الزمني (التايم لاين) في الدرس."},
+  {id:3,sec:1,rev:true,en:"I find it difficult to stay focused during grammar activities that involve using a timeline.",ar:"أجد صعوبة في التركيز أثناء أنشطة القواعد التي تتضمن استخدام الخط الزمني (التايم لاين)."},
+  {id:4,sec:1,rev:false,en:"Timeline-based grammar activities make lessons feel more interactive and stimulating.",ar:"الأنشطة القائمة على الخط الزمني (التايم لاين) تجعل دروس القواعد أكثر تفاعلاً وإثارة."},
+  {id:5,sec:1,rev:true,en:"I would prefer grammar lessons without timelines, as I feel less engaged when they are used.",ar:"أفضّل دروس القواعد بدون خط زمني (تايم لاين)، لأنني أشعر بتفاعل أقل عند استخدامه."},
+  {id:6,sec:2,rev:false,en:"I am satisfied with using the timeline as a method to learn grammar.",ar:"أنا راضٍ عن استخدام الخط الزمني (التايم لاين) كأسلوب لتعلم القواعد."},
+  {id:7,sec:2,rev:false,en:"I feel that timelines make grammar lessons more enjoyable overall.",ar:"أشعر أن الخطوط الزمنية (التايم لاين) تجعل دروس القواعد أكثر متعة بشكل عام."},
+  {id:8,sec:2,rev:true,en:"I do not feel satisfied with my overall experience of learning grammar through timelines.",ar:"لا أشعر بالرضا عن تجربتي العامة في تعلم القواعد من خلال الخطوط الزمنية (التايم لاين)."},
+  {id:9,sec:2,rev:false,en:"I would recommend the use of timelines in grammar lessons to my peers.",ar:"أوصي باستخدام الخط الزمني (التايم لاين) في دروس القواعد لزملائي."},
+  {id:10,sec:2,rev:true,en:"I think that learning grammar through timelines is not an effective approach for me.",ar:"أعتقد أن تعلم القواعد من خلال الخطوط الزمنية (التايم لاين) ليس أسلوباً فعّالاً بالنسبة لي."},
+  {id:11,sec:3,rev:false,en:"Using a timeline helps me understand complex grammar tenses more clearly.",ar:"يساعدني استخدام الخط الزمني (التايم لاين) على فهم أزمنة القواعد المعقدة بوضوح أكبر."},
+  {id:12,sec:3,rev:false,en:"I can use complex grammar tenses more accurately in writing and speaking after timeline-based lessons.",ar:"أستطيع استخدام أزمنة القواعد المعقدة بدقة أكبر في الكتابة والكلام بعد الدروس القائمة على الخط الزمني (التايم لاين)."},
+  {id:13,sec:3,rev:true,en:"I still struggle with complex grammar tenses even after using timelines in lessons.",ar:"لا أزال أواجه صعوبة في أزمنة القواعد المعقدة حتى بعد استخدام الخطوط الزمنية (التايم لاين) في الدروس."},
+  {id:14,sec:3,rev:false,en:"Timelines help me distinguish between different complex grammar tenses more easily.",ar:"تساعدني الخطوط الزمنية (التايم لاين) على التمييز بين أزمنة القواعد المعقدة المختلفة بسهولة أكبر."},
+  {id:15,sec:3,rev:true,en:"I do not think that timelines have improved my ability to use complex grammar tenses.",ar:"لا أعتقد أن الخطوط الزمنية (التايم لاين) قد حسّنت قدرتي على استخدام أزمنة القواعد المعقدة."},
+];
+let ans={},dem={};
+
+/* ─── DATA ─────────────────────────────── */
+function load(){try{return JSON.parse(localStorage.getItem(SK)||'[]');}catch{return[];}}
+function save(e){const a=load();a.push(e);localStorage.setItem(SK,JSON.stringify(a));}
+function clearAll(){
+  var _n=load().length;
+  if(!_n){toast('No data | لا يوجد بيانات','#b8923a');return;}
+  // Show custom modal instead of confirm()
+  document.getElementById('clear-modal-count').textContent='This will permanently delete '+_n+' response(s). | سيتم حذف '+_n+' إجابة نهائياً.';
+  document.getElementById('clear-modal').style.display='flex';
+}
+function clearAllExecute(wantSave){
+  document.getElementById('clear-modal').style.display='none';
+  var _n=load().length;
+  if(wantSave){
+    exportCSV();
+    setTimeout(function(){
+      localStorage.removeItem(SK);
+      localStorage.setItem(SK,'[]');
+      toast('✓ Saved & deleted '+_n+' responses | تم الحفظ والحذف','#1a7a3a');
+      setTimeout(function(){location.reload();},1200);
+    },800);
+  } else {
+    localStorage.removeItem(SK);
+    localStorage.setItem(SK,'[]');
+    toast('Deleted '+_n+' responses | تم الحذف','#c0392b');
+    setTimeout(function(){location.reload();},800);
+  }
+}
+function deleteEntry(idx){if(confirm('Delete this response?\nحذف هذه الإجابة؟')){const a=load();a.splice(idx,1);localStorage.setItem(SK,JSON.stringify(a));renderRes();}}
+function deleteByID(){
+  const inp=document.getElementById('del-id-input');
+  const msg=document.getElementById('del-msg');
+  const val=(inp.value||'').trim();
+  if(!val){msg.style.color='#c0392b';msg.textContent='Enter a Student ID first.';return;}
+  const a=load(),before=a.length;
+  const filtered=a.filter(r=>String(r.id||'').trim()!==val);
+  if(filtered.length===before){msg.style.color='#c0392b';msg.textContent=`No response found for ID "${val}".`;return;}
+  localStorage.setItem(SK,JSON.stringify(filtered));
+  msg.style.color='#1a7a3a';
+  msg.textContent=`Deleted ${before-filtered.length} response(s) for ID "${val}".`;
+  inp.value='';
+  setTimeout(()=>renderRes(),500);
+}
+
+/* ─── NAVIGATION ────────────────────────── */
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+id).classList.add('active');window.scrollTo(0,0);}
+function openResults(){document.getElementById('pwo').style.display='flex';document.getElementById('pwi').value='';document.getElementById('pwerr').textContent='';setTimeout(()=>document.getElementById('pwi').focus(),80);}
+function closePW(){document.getElementById('pwo').style.display='none';}
+function checkPW(){if(document.getElementById('pwi').value===PW){closePW();renderRes();showScreen('results');}else{document.getElementById('pwerr').textContent='Incorrect password. | كلمة مرور خاطئة.';document.getElementById('pwi').select();}}
+
+/* ─── FORM ──────────────────────────────── */
+function selR(grp,el,name,val){document.querySelectorAll('#'+grp+' .ckoption').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');dem[name]=val;const inp=el.querySelector('input');if(inp)inp.checked=true;const e=document.getElementById('e-'+name);if(e)e.style.display='none';}
+function submitDemo(){
+  let ok=true;
+  const id=document.getElementById('d-id').value.trim();
+  ['gender','age','year','faculty','unis'].forEach(f=>{
+    const e=document.getElementById('e-'+f);
+    if(!document.querySelector('input[name="'+f+'"]:checked')){e.style.display='block';ok=false;}else e.style.display='none';
+  });
+  if(!id||!ok){document.getElementById('derr').style.display='block';window.scrollTo(0,180);return;}
+  document.getElementById('derr').style.display='none';
+  const unis=document.querySelector('input[name="unis"]:checked').value;
+  dem={id,gender:document.querySelector('input[name="gender"]:checked').value,age:document.querySelector('input[name="age"]:checked').value,
+    year:document.querySelector('input[name="year"]:checked').value,faculty:document.querySelector('input[name="faculty"]:checked').value,
+    major:document.getElementById('d-major').value.trim(),isUniStudent:unis,
+    uniname:unis==='yes'?document.getElementById('d-uniname').value.trim():''};
+  ans={};updP();showScreen('survey');
+}
+function onA(n,v){ans[n]=v;updP();document.getElementById('e'+n).classList.remove('show');const l=document.getElementById('l'+n);l.querySelectorAll('label').forEach(lb=>lb.classList.toggle('ck',parseInt(lb.getAttribute('data-val'))===v));}
+function updP(){const n=Object.keys(ans).length;document.getElementById('pf').style.width=(n/15*100)+'%';document.getElementById('ac').textContent=n+' / 15 answered';}
+function updC(n){document.getElementById('cc'+n).textContent=document.getElementById('q'+n).value.length+' / 600';}
+function submitSurvey(){
+  let ok=true;
+  for(let i=1;i<=15;i++){const e=document.getElementById('e'+i);if(!ans[i]){e.classList.add('show');if(ok)e.scrollIntoView({behavior:'smooth',block:'center'});ok=false;}else e.classList.remove('show');}
+  const q16=document.getElementById('q16').value.trim(),q17=document.getElementById('q17').value.trim();
+  if(!q16){document.getElementById('e16').classList.add('show');if(ok)document.getElementById('e16').scrollIntoView({behavior:'smooth',block:'center'});ok=false;}else document.getElementById('e16').classList.remove('show');
+  if(!q17){document.getElementById('e17').classList.add('show');if(ok)document.getElementById('e17').scrollIntoView({behavior:'smooth',block:'center'});ok=false;}else document.getElementById('e17').classList.remove('show');
+  if(!ok)return;
+  const entry={...dem,timestamp:new Date().toISOString(),raw:{},scored:{},q16,q17};
+  Qs.forEach(q=>{const r=ans[q.id];entry.raw[q.id]=r;entry.scored[q.id]=q.rev?(6-r):r;});
+  entry.secScore={1:[1,2,3,4,5].reduce((s,i)=>s+entry.scored[i],0),2:[6,7,8,9,10].reduce((s,i)=>s+entry.scored[i],0),3:[11,12,13,14,15].reduce((s,i)=>s+entry.scored[i],0)};
+  entry.totalScore=entry.secScore[1]+entry.secScore[2]+entry.secScore[3];
+  save(entry);showScreen('thanks');
+}
+function nextStudent(){
+  dem={};ans={};
+  ['d-id','d-major','d-uniname'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('uni-cond').classList.remove('show');
+  document.querySelectorAll('.ckoption').forEach(o=>o.classList.remove('selected'));
+  document.querySelectorAll('input[type="radio"]').forEach(r=>r.checked=false);
+  document.querySelectorAll('.likert label').forEach(l=>l.classList.remove('ck'));
+  document.querySelectorAll('.qerr').forEach(e=>{e.classList.remove('show');e.style.display='';});
+  document.getElementById('q16').value='';document.getElementById('q17').value='';
+  document.getElementById('cc16').textContent='0 / 600';document.getElementById('cc17').textContent='0 / 600';
+  updP();/* ── INIT ── */
+document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+showScreen('welcome');
+updP();
+}
+
+/* ─── STATS HELPERS ─────────────────────── */
+function descStats(arr){
+  if(!arr||!arr.length)return{n:0,mean:0,median:0,mode:'—',variance:0,sd:0,cv:0,sum:0,min:'—',max:'—',range:0,stdErr:0,skew:0,kurt:0};
+  const n=arr.length,mean=arr.reduce((a,b)=>a+b,0)/n;
+  const sorted=[...arr].sort((a,b)=>a-b);
+  const median=n%2?sorted[~~(n/2)]:(sorted[n/2-1]+sorted[n/2])/2;
+  const freq={};arr.forEach(v=>{freq[v]=(freq[v]||0)+1;});
+  const mode=Object.entries(freq).sort((a,b)=>b[1]-a[1])[0][0];
+  const variance=n>1?arr.reduce((a,v)=>a+(v-mean)**2,0)/(n-1):0;
+  const sd=Math.sqrt(variance),cv=mean?sd/mean*100:0,sum=arr.reduce((a,b)=>a+b,0);
+  const min=sorted[0],max=sorted[n-1],range=max-min,stdErr=sd/Math.sqrt(n);
+  const skew=n>2&&sd?arr.reduce((a,v)=>a+((v-mean)/sd)**3,0)*n/((n-1)*(n-2)):0;
+  const kurt=n>3&&sd?arr.reduce((a,v)=>a+((v-mean)/sd)**4,0)*n*(n+1)/((n-1)*(n-2)*(n-3))-3*(n-1)**2/((n-2)*(n-3)):0;
+  return{n,mean,median,mode:parseFloat(mode),variance,sd,cv,sum,min,max,range,stdErr,skew,kurt};
+}
+function pct(v,t){return t>0?((v/t)*100).toFixed(1)+'%':'0.0%';}
+function pctN(v,t){return t>0?parseFloat(((v/t)*100).toFixed(1)):0;}
+function fmt(v){return(isNaN(v)||!isFinite(v))?'—':Number(v).toFixed(2);}
+
+/* ─── CANVAS DRAWING ────────────────────── */
+function drawBar(id,vals,labels,colors){
+  const cv=document.getElementById(id);if(!cv)return;
+  // measure actual rendered width
+  const W=cv.parentElement?cv.parentElement.clientWidth||300:300;
+  const H=190;cv.width=W;cv.height=H;
+  const ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,W,H);
+  const n=vals.length,mx=Math.max(...vals,1);
+  const leftPad=28,botPad=28,topPad=10;
+  const chartW=W-leftPad-6,chartH=H-botPad-topPad;
+  const bGap=4,bw=Math.max(6,Math.floor((chartW-bGap*(n+1))/n));
+  const totalBarsW=n*bw+(n+1)*bGap;
+  const startX=leftPad+(chartW-totalBarsW)/2+bGap;
+  // grid
+  ctx.strokeStyle='#e8e2d5';ctx.lineWidth=1;
+  [.25,.5,.75,1].forEach(f=>{
+    const y=topPad+chartH-Math.floor(f*chartH);
+    ctx.beginPath();ctx.moveTo(leftPad,y);ctx.lineTo(W-4,y);ctx.stroke();
+    ctx.fillStyle='#aaa';ctx.font='8px DM Sans,sans-serif';ctx.textAlign='right';
+    ctx.fillText(Math.round(f*mx),leftPad-2,y+3);
+  });
+  // bars + labels
+  vals.forEach((v,i)=>{
+    const x=startX+i*(bw+bGap);
+    const bh=v>0?Math.max(3,Math.floor(v/mx*chartH)):0;
+    const y=topPad+chartH-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x,y,bw,bh);
+    if(v>0){ctx.fillStyle='#fff';ctx.font='bold 9px DM Sans,sans-serif';ctx.textAlign='center';ctx.fillText(v,x+bw/2,y+12);}
+    ctx.fillStyle='#555';ctx.font='8px DM Sans,sans-serif';ctx.textAlign='center';
+    const lbl=String(labels[i]);
+    ctx.fillText(lbl.length>6?lbl.slice(0,5)+'…':lbl,x+bw/2,H-10);
+  });
+  // line overlay
+  ctx.beginPath();ctx.strokeStyle='#b8923a';ctx.lineWidth=2;ctx.setLineDash([4,3]);
+  vals.forEach((v,i)=>{
+    const x=startX+i*(bw+bGap)+bw/2;
+    const bh=v>0?Math.max(3,Math.floor(v/mx*chartH)):0;
+    const y=topPad+chartH-bh;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.stroke();ctx.setLineDash([]);
+  vals.forEach((v,i)=>{
+    const x=startX+i*(bw+bGap)+bw/2;
+    const bh=v>0?Math.max(3,Math.floor(v/mx*chartH)):0;
+    const y=topPad+chartH-bh;
+    ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle='#b8923a';ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();ctx.lineWidth=1;
+  });
+}
+
+function drawPie(id,vals,colors,centerLabel){
+  const cv=document.getElementById(id);if(!cv)return;
+  const W=cv.parentElement?Math.min(cv.parentElement.clientWidth||200,240):200;
+  const H=200;cv.width=W;cv.height=H;
+  const ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,W,H);
+  const tot=vals.reduce((a,b)=>a+b,0);
+  const cx=W/2,cy=H/2,r=Math.min(W,H)/2-14,inn=r*0.42;
+  if(!tot){
+    ctx.fillStyle='#e8e2d5';ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#fffdf7';ctx.beginPath();ctx.arc(cx,cy,inn,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#aaa';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('No data',cx,cy);
+    return;
+  }
+  let ang=-Math.PI/2;
+  vals.forEach((v,i)=>{
+    if(!v)return;
+    const sl=v/tot*Math.PI*2;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,ang,ang+sl);ctx.closePath();
+    ctx.fillStyle=colors[i%colors.length];ctx.fill();
+    ctx.strokeStyle='#fffdf7';ctx.lineWidth=2;ctx.stroke();
+    if(sl>0.3){
+      const mid=ang+sl/2;
+      ctx.fillStyle='#fff';ctx.font='bold 10px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(Math.round(v/tot*100)+'%',cx+Math.cos(mid)*(r*0.65),cy+Math.sin(mid)*(r*0.65));
+    }
+    ang+=sl;
+  });
+  ctx.beginPath();ctx.arc(cx,cy,inn,0,Math.PI*2);ctx.fillStyle='#fffdf7';ctx.fill();
+  ctx.fillStyle='#1c2b4a';ctx.font='bold 13px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(String(centerLabel??tot),cx,cy);
+}
+
+/* ─── TOAST ─────────────────────────────── */
+function toast(msg,bg){
+  const t=document.createElement('div');
+  t.textContent=msg;
+  t.style.cssText=`position:fixed;bottom:26px;right:26px;background:${bg||'#1c2b4a'};color:#fff;padding:12px 20px;border-radius:9px;font-size:.84rem;font-weight:700;z-index:99999;box-shadow:0 6px 20px rgba(0,0,0,.3);transition:opacity .4s;pointer-events:none;`;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),500);},2800);
+}
+
+/* ─── EXPORT ─────────────────────────────── */
+/* ══════════ EXPORT FUNCTIONS ══════════ */
+
+// Helper: ensure results are rendered before export
+function ensureResults(){
+  const rc=document.getElementById('rc');
+  return rc && rc.innerHTML.trim().length > 100;
+}
+
+// PDF via print dialog
+/* ── Download via data URI — works from local files ── */
+function downloadFile(data,filename,mime){
+  try{
+    var a=document.createElement('a');
+    a.href='data:'+mime+';charset=utf-8,'+encodeURIComponent(data);
+    a.download=filename;a.style.display='none';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){document.body.removeChild(a);},500);
+    return true;
+  }catch(e){
+    try{
+      var blob=new Blob([data],{type:mime});
+      var url=URL.createObjectURL(blob);
+      var a2=document.createElement('a');
+      a2.href=url;a2.download=filename;
+      document.body.appendChild(a2);a2.click();document.body.removeChild(a2);
+      setTimeout(function(){URL.revokeObjectURL(url);},3000);
+      return true;
+    }catch(e2){return false;}
+  }
+}
+
+function exportPDF(){
+  if(!ensureResults()){toast('Open Results first | افتح النتائج','#c0392b');return;}
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+  document.getElementById('screen-results').classList.add('active');
+  var s=document.createElement('style');s.id='_pdfstyle';
+  s.textContent='@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}.site-header,.pwo,.export-bar,.export-btn,.xbtn,.btn,#screen-welcome,#screen-demo,#screen-survey,#screen-thanks{display:none!important;}#screen-results{display:block!important;}.screen{display:none!important;}#screen-results.screen{display:block!important;}body{background:#fff!important;margin:0;padding:0;}.rw{max-width:100%!important;padding:10px!important;margin:0!important;}.qres,.oac,.demo-blk,.sec-summary,.overall-summary{page-break-inside:avoid;margin-bottom:10px!important;}.lk-grid,.demo-grid,.qual-grid{display:block!important;}.tbl-wrap{overflow:visible!important;}table{font-size:7pt!important;}}';
+  document.head.appendChild(s);
+  toast('Opening print dialog | يتم الطباعة','#1c2b4a');
+  setTimeout(function(){
+    window.print();
+    setTimeout(function(){var x=document.getElementById('_pdfstyle');if(x)x.remove();},3000);
+  },600);
+}
+
+function exportWord(){
+  if(!ensureResults()){toast('Open Results first','#c0392b');return;}
+  var rc=document.getElementById('rc');
+  var clone=rc.cloneNode(true);
+  clone.querySelectorAll('canvas,.export-btn,.xbtn,.btn,input,#del-id-input,#del-msg').forEach(function(el){el.remove();});
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8">'
+    +'<style>body{font-family:Arial,sans-serif;font-size:11pt;margin:2cm;}'
+    +'table{border-collapse:collapse;width:100%;margin:6pt 0;}'
+    +'th{background:#1c2b4a;color:#fff;padding:4pt 6pt;font-size:9pt;border:1pt solid #999;}'
+    +'td{border:1pt solid #ccc;padding:3pt 6pt;font-size:9pt;}'
+    +'.interp{border-left:3pt solid #2a5f5f;padding:5pt 8pt;background:#eef5f5;}'
+    +'.lk-grid,.demo-grid,.qual-grid{display:block;}'
+    +'</style></head><body>'
+    +'<h1 style="color:#1c2b4a;border-bottom:2pt solid #b8923a;">Survey Results — Timeline Grammar</h1>'
+    +'<p style="font-size:9pt;color:#777;">Generated: '+new Date().toLocaleString()+'</p>'
+    +clone.innerHTML+'</body></html>';
+  var ok=downloadFile(html,'Survey_Results_'+new Date().toISOString().slice(0,10)+'.doc','application/msword');
+  if(ok)toast('Word downloading | يتم تحميل Word','#2a6ab8');
+  else toast('Failed — use Save HTML instead','#c0392b');
+}
+
+function exportHTMLFile(){
+  try{
+    var data=localStorage.getItem(SK)||'[]';
+    var full='<!DOCTYPE html>'+document.documentElement.outerHTML;
+    var inj='<scr'+'ipt>try{if(!localStorage.getItem("'+SK+'"))localStorage.setItem("'+SK+'",'+JSON.stringify(data)+');}catch(e){}<'+'/script>';
+    full=full.replace('</head>',inj+'</head>');
+    var date=new Date().toISOString().slice(0,10);
+    var ok=downloadFile(full,'Timeline_Survey_'+date+'.html','text/html');
+    if(ok)toast('HTML saved with data | تم الحفظ','#2a5f5f');
+    else toast('Save failed','#c0392b');
+  }catch(e){toast('Error: '+e.message,'#c0392b');}
+}
+
+async function exportHTMLCopy(){
+  try{
+    var data=localStorage.getItem(SK)||'[]';
+    var full='<!DOCTYPE html>'+document.documentElement.outerHTML;
+    var inj='<scr'+'ipt>try{if(!localStorage.getItem("'+SK+'"))localStorage.setItem("'+SK+'",'+JSON.stringify(data)+');}catch(e){}<'+'/script>';
+    full=full.replace('</head>',inj+'</head>');
+    if(navigator.clipboard&&window.isSecureContext){
+      await navigator.clipboard.writeText(full);
+      toast('Copied! Paste into .html file | تم النسخ','#1a7a3a');
+    }else{
+      var ta=document.createElement('textarea');
+      ta.value=full;ta.style.cssText='position:fixed;opacity:0;top:0;left:0;';
+      document.body.appendChild(ta);ta.focus();ta.select();
+      document.execCommand('copy');document.body.removeChild(ta);
+      toast('Copied! Paste into .html file | تم النسخ','#1a7a3a');
+    }
+  }catch(e){exportHTMLFile();toast('Copy failed — downloaded instead | تم التحميل بدلاً','#b8923a');}
+}
+
+/* ── CSV EXPORT / IMPORT ── */
+function exportCSV(){
+  var rawAll=load();
+  if(!rawAll.length){toast('No data | لا يوجد بيانات','#b8923a');return;}
+  var CRLF=String.fromCharCode(13,10);
+  var BOM=String.fromCharCode(0xFEFF);
+  var hdr='timestamp,id,gender,age,year,faculty,major,isUniStudent,uniname'
+    +',Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15'
+    +',sc1,sc2,sc3,sc4,sc5,sc6,sc7,sc8,sc9,sc10,sc11,sc12,sc13,sc14,sc15'
+    +',secB,secC,secD,total,q16,q17';
+  function esc(v){
+    var s=String(v==null?'':v).replace(/[\r\n]/g,' ');
+    return(s.indexOf(',')>-1||s.indexOf('"')>-1)?'"'+s.replace(/"/g,'""')+'"':s;
+  }
+  var rows=rawAll.map(function(r){
+    var cols=[r.timestamp||'',r.id||'',r.gender||'',r.age||'',r.year||'',
+      r.faculty||'',r.major||'',r.isUniStudent||'',r.uniname||''];
+    [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].forEach(function(i){cols.push(r.raw?r.raw[i]||'':'');});
+    [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].forEach(function(i){cols.push(r.scored?r.scored[i]||'':'');});
+    cols.push(r.secScore?r.secScore[1]||'':'',r.secScore?r.secScore[2]||'':'',r.secScore?r.secScore[3]||'':'');
+    cols.push(r.totalScore||'',r.q16||'',r.q17||'');
+    return cols.map(esc).join(',');
+  });
+  var ok=downloadFile(BOM+hdr+CRLF+rows.join(CRLF),'Survey_'+new Date().toISOString().slice(0,10)+'.csv','text/csv');
+  if(ok)toast('CSV exported ('+rawAll.length+' rows) | تم التصدير','#1a7a3a');
+  else toast('Export failed','#c0392b');
+}
+
+function importCSV(){
+  document.getElementById('csv-import-modal').style.display='flex';
+  document.getElementById('csv-import-msg').textContent='';
+  document.getElementById('csv-file-input').value='';
+}
+
+function processCSVImport(){
+  var file=document.getElementById('csv-file-input').files[0];
+  var msg=document.getElementById('csv-import-msg');
+  if(!file){msg.style.color='#c0392b';msg.textContent='Select a CSV file first.';return;}
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var text=e.target.result.replace(/^[\uFEFF]/,'');
+      var allLines=text.split(/\r?\n/).filter(function(l){return l.trim();});
+      var hdrs=allLines[0].split(',');
+      function gi(name){return hdrs.indexOf(name);}
+      var existing=load();
+      var ids=new Set(existing.map(function(r){return String(r.id||'').trim();}));
+      var added=0,skipped=0;
+      function parseLine(line){
+        var vals=[],cur='',inQ=false;
+        for(var ci=0;ci<line.length;ci++){
+          if(line[ci]=='"'){if(inQ&&line[ci+1]=='"'){cur+='"';ci++;}else inQ=!inQ;}
+          else if(line[ci]==','&&!inQ){vals.push(cur);cur='';}
+          else cur+=line[ci];
+        }
+        vals.push(cur);return vals;
+      }
+      for(var li=1;li<allLines.length;li++){
+        var vals=parseLine(allLines[li]);
+        if(vals.length<10)continue;
+        function gv(name){return vals[gi(name)]||'';}
+        var rid=gv('id');
+        if(ids.has(rid)&&rid){skipped++;continue;}
+        var raw={},scored={};
+        for(var qi=1;qi<=15;qi++){
+          raw[qi]=parseInt(vals[gi('Q'+qi)])||0;
+          scored[qi]=parseInt(vals[gi('sc'+qi)])||0;
+        }
+        var sb=parseInt(vals[gi('secB')])||0;
+        var sc2=parseInt(vals[gi('secC')])||0;
+        var sd2=parseInt(vals[gi('secD')])||0;
+        if(!sb)[1,2,3,4,5].forEach(function(k){sb+=scored[k]||0;});
+        if(!sc2)[6,7,8,9,10].forEach(function(k){sc2+=scored[k]||0;});
+        if(!sd2)[11,12,13,14,15].forEach(function(k){sd2+=scored[k]||0;});
+        existing.push({
+          timestamp:gv('timestamp')||new Date().toISOString(),
+          id:rid,gender:gv('gender'),age:gv('age'),year:gv('year'),
+          faculty:gv('faculty'),major:gv('major'),
+          isUniStudent:gv('isUniStudent')||'yes',uniname:gv('uniname'),
+          raw:raw,scored:scored,secScore:{1:sb,2:sc2,3:sd2},
+          totalScore:parseInt(vals[gi('total')])||sb+sc2+sd2,
+          q16:gv('q16'),q17:gv('q17')
+        });
+        ids.add(rid);added++;
+      }
+      localStorage.setItem(SK,JSON.stringify(existing));
+      msg.style.color='#1a7a3a';
+      msg.textContent='Imported '+added+' responses'+(skipped?' ('+skipped+' skipped)':'')+'.';
+      setTimeout(function(){
+        document.getElementById('csv-import-modal').style.display='none';
+        renderRes();
+        toast('Imported '+added+' responses | تم الاستيراد','#1a7a3a');
+      },1500);
+    }catch(err){
+      msg.style.color='#c0392b';
+      msg.textContent='Error: '+err.message;
+    }
+  };
+  reader.readAsText(file,'UTF-8');
+}
+
+/* ─── RENDER RESULTS ────────────────────── */
+function renderRes(){
+  const rawAll=load();
+  document.getElementById('rts').textContent='Updated: '+new Date().toLocaleString();
+  const c=document.getElementById('rc');
+  if(!rawAll.length){
+    c.innerHTML='<div class="nodata"><div style="font-size:2.5rem;margin-bottom:14px;">📭</div><div>No responses yet.</div><div style="font-family:\'Noto Naskh Arabic\',serif;direction:rtl;color:var(--teal);margin-top:6px;">لا توجد إجابات بعد.</div></div>';
+    return;
+  }
+  const all=rawAll.filter(r=>r.isUniStudent==='yes');
+  const N=all.length,nonUni=rawAll.length-N;
+  const femR=all.filter(r=>r.gender==='F'),maleR=all.filter(r=>r.gender==='M');
+  const fem=femR.length,male=maleR.length;
+  const secAvg=s=>N?(all.reduce((x,r)=>x+r.secScore[s],0)/N).toFixed(2):'—';
+  const totalAvg=N?(all.reduce((s,r)=>s+r.totalScore,0)/N).toFixed(2):'—';
+
+  // ── helper: section label ──
+  const slbl=txt=>`<div class="sec-lbl">${txt}</div>`;
+
+  let h='';
+  let charts=[];// deferred chart draws
+
+  /* ════════ SCOPE NOTICE ════════ */
+  h+=`<div style="background:#e8f5e8;border:1px solid #a0d0a0;border-radius:9px;padding:11px 16px;margin-bottom:18px;font-size:.78rem;color:#1a5a1a;">
+    📊 <b>Analysis scope:</b> Calculations based on <b>${N} university student${N!==1?'s':''}</b> only.
+    ${nonUni?`<span style="color:#7a5520;margin-left:8px;">(${nonUni} non-university submission${nonUni>1?'s':''} excluded from statistics)</span>`:''}
+  </div>`;
+
+  /* ════════ SUMMARY CARDS ════════ */
+  h+=`<div class="stats-grid">
+    <div class="scard"><div class="val">${N}</div><div class="lbl">Uni Students</div><div class="lar">طلاب جامعيون</div></div>
+    <div class="scard"><div class="val" style="color:#9e2a5a">${fem}</div><div class="lbl">Female ♀</div></div>
+    <div class="scard"><div class="val" style="color:#1a3a7a">${male}</div><div class="lbl">Male ♂</div></div>
+    <div class="scard"><div class="val">${totalAvg}</div><div class="lbl">Avg Score / 75</div><div class="lar">متوسط الدرجة</div></div>
+  </div>
+  <div class="ssg">
+    <div class="sscore s1"><div class="scl">Section B · Engagement</div><div class="scv">${secAvg(1)}<span class="scmax">/25</span></div><div class="scar">التفاعل</div></div>
+    <div class="sscore s2"><div class="scl">Section C · Satisfaction</div><div class="scv">${secAvg(2)}<span class="scmax">/25</span></div><div class="scar">الرضا</div></div>
+    <div class="sscore s3"><div class="scl">Section D · Tenses</div><div class="scv">${secAvg(3)}<span class="scmax">/25</span></div><div class="scar">الأزمنة</div></div>
+  </div>`;
+
+  /* ════════ DATA MANAGEMENT ════════ */
+  var dmBar=document.getElementById('data-mgmt-bar');if(dmBar)dmBar.style.display='block';
+
+  /* ════════ SECTION A — DEMOGRAPHICS ════════ */
+  h+=`<hr class="sdiv"><div class="rsth">Section A — Demographic Analysis <span class="art">القسم أ — التحليل الديموغرافي</span></div>`;
+
+  function demoBlock(titleEn,titleAr,rows,total,colors,note){
+    const tRows=rows.map((r,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+      <td style="padding:6px 9px;">${r[0]}</td>
+      <td style="padding:6px 9px;text-align:center;font-weight:700;">${r[1]}</td>
+      <td style="padding:6px 9px;text-align:center;">${pct(r[1],total)}</td>
+    </tr>`).join('');
+    const bars=rows.map((r,i)=>`<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px;">
+      <div style="min-width:80px;max-width:130px;flex-shrink:0;font-size:.67rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r[0]}</div>
+      <div style="flex:1;height:16px;background:var(--soft);border-radius:3px;overflow:hidden;min-width:30px;">
+        <div style="height:100%;width:${pctN(r[1],total)}%;background:${colors[i%colors.length]};border-radius:3px;transition:width .6s;"></div>
+      </div>
+      <div style="width:20px;font-size:.67rem;font-weight:700;text-align:right;flex-shrink:0;">${r[1]}</div>
+      <div style="width:40px;font-size:.65rem;color:var(--muted);text-align:right;flex-shrink:0;">${pct(r[1],total)}</div>
+    </div>`).join('');
+    return`<div class="demo-blk">
+      <div style="font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:2px;">Distribution of Participants — ${titleEn}</div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;color:var(--teal);direction:rtl;margin-bottom:12px;">توزيع المشاركين حسب ${titleAr}</div>
+      <div class="demo-grid">
+        <div>
+          <table style="width:100%;border-collapse:collapse;font-size:.73rem;">
+            <thead><tr style="background:var(--navy);color:#fff;">
+              <th style="padding:6px 9px;text-align:left;">${titleEn}</th>
+              <th style="padding:6px 9px;text-align:center;">Freq.</th>
+              <th style="padding:6px 9px;text-align:center;">%</th>
+            </tr></thead>
+            <tbody>${tRows}<tr style="background:var(--soft);font-weight:700;">
+              <td style="padding:6px 9px;">Total</td>
+              <td style="padding:6px 9px;text-align:center;">${total}</td>
+              <td style="padding:6px 9px;text-align:center;">100%</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div>${slbl('Bar Chart')}${bars}</div>
+      </div>
+      ${note?`<div class="interp">${note}</div>`:''}
+    </div>`;
+  }
+
+  /* Yes/No */
+  const ynY=rawAll.filter(r=>r.isUniStudent==='yes').length,ynN=rawAll.length-ynY,ynT=rawAll.length;
+  h+=`<div class="demo-blk">
+    <div style="font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:2px;">Yes/No — Are you a university student?</div>
+    <div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;color:var(--teal);direction:rtl;margin-bottom:12px;">هل أنت طالب جامعي؟</div>
+    <div class="demo-grid">
+      <div>
+        <table style="width:100%;border-collapse:collapse;font-size:.73rem;">
+          <thead><tr style="background:var(--navy);color:#fff;"><th style="padding:6px 9px;text-align:left;">Answer</th><th style="padding:6px 9px;text-align:center;">Freq.</th><th style="padding:6px 9px;text-align:center;">%</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 9px;">✅ Yes — نعم</td><td style="padding:6px 9px;text-align:center;font-weight:700;">${ynY}</td><td style="padding:6px 9px;text-align:center;">${pct(ynY,ynT)}</td></tr>
+            <tr style="background:#faf8f3;"><td style="padding:6px 9px;">❌ No — لا</td><td style="padding:6px 9px;text-align:center;font-weight:700;">${ynN}</td><td style="padding:6px 9px;text-align:center;">${pct(ynN,ynT)}</td></tr>
+            <tr style="background:var(--soft);font-weight:700;"><td style="padding:6px 9px;">Total</td><td style="padding:6px 9px;text-align:center;">${ynT}</td><td style="padding:6px 9px;text-align:center;">100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>${slbl('Bar Chart')}
+        ${[['Yes ✅',ynY,'#2a5f5f'],['No ❌',ynN,'#c0392b']].map(r=>`<div style="display:flex;align-items:center;gap:7px;margin-bottom:6px;">
+          <div style="min-width:55px;font-size:.67rem;">${r[0]}</div>
+          <div style="flex:1;height:18px;background:var(--soft);border-radius:3px;overflow:hidden;min-width:30px;"><div style="height:100%;width:${pctN(r[1],ynT)}%;background:${r[2]};border-radius:3px;"></div></div>
+          <div style="width:20px;font-size:.67rem;font-weight:700;">${r[1]}</div>
+          <div style="width:40px;font-size:.65rem;color:var(--muted);text-align:right;">${pct(r[1],ynT)}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+    <div class="interp">Out of ${ynT} total submissions, <b>${pct(ynY,ynT)}</b> (n=${ynY}) confirmed university student status and are included in all statistical calculations below.</div>
+  </div>`;
+
+  if(N>0){
+    h+=demoBlock('Gender','الجنس',[['Male ذكر',male],['Female أنثى',fem]],N,['#1a3a7a','#9e2a5a'],
+      `The sample comprised ${male} male (${pct(male,N)}) and ${fem} female (${pct(fem,N)}) university students.`);
+    const ab={'18-20':0,'21-23':0,'24+':0};all.forEach(r=>{if(ab[r.age]!==undefined)ab[r.age]++;});
+    h+=demoBlock('Age Range','الفئة العمرية',Object.entries(ab).map(([k,v])=>[k,v]),N,['#2a5f5f','#3d8b8b','#5aabab'],null);
+    const yb={'1':0,'2':0,'3':0,'4':0};all.forEach(r=>{if(yb[r.year]!==undefined)yb[r.year]++;});
+    h+=demoBlock('Year of Study','السنة الدراسية',[['Year 1',yb['1']],['Year 2',yb['2']],['Year 3',yb['3']],['Year 4',yb['4']]],N,['#b8923a','#d4aa5a','#a07020','#e8c97a'],null);
+    const fc={};all.forEach(r=>{if(r.faculty)fc[r.faculty]=(fc[r.faculty]||0)+1;});
+    const fn={Languages:'Languages اللغات',MassCom:'Mass Comm.',Management:'Management',Engineering:'Engineering',CS:'Comp. Sci',Pharmacy:'Pharmacy',Biotech:'Biotechnology',Dentistry:'Dentistry',Arts:'Arts & Design',PhysTherapy:'Phys Therapy',Nutrition:'Nutrition'};
+    const fcRows=Object.entries(fc).map(([k,v])=>[fn[k]||k,v]);
+    h+=demoBlock('Faculty','الكلية',fcRows,N,['#2a5f5f','#1c2b4a','#5a3a1a','#3a1a5a','#3a5a1a','#5a1a3a','#1a5a5a','#7a5a1a','#1a3a7a','#7a1a3a'],null);
+  }
+
+  if(!N){c.innerHTML=h+'<div class="nodata">No university student responses yet.</div>';return;}
+
+  /* ════════ LIKERT ANALYSIS ════════ */
+  const lkC={5:'#2a5f5f',4:'#3d8b8b',3:'#8b8b6a',2:'#c0602e',1:'#8b2020'};
+  const lkL={5:'Strongly Agree أوافق بشدة',4:'Agree أوافق',3:'Neutral محايد',2:'Disagree لا أوافق',1:'Strongly Disagree لا أوافق بشدة'};
+  const lkS={5:'SA',4:'A',3:'N',2:'D',1:'SD'};
+
+  h+=`<hr class="sdiv"><div class="rsth">Likert Scale Analysis — Q1 to Q15 <span class="art">تحليل مقياس ليكرت</span></div>`;
+
+  Qs.forEach(q=>{
+    const ct={5:0,4:0,3:0,2:0,1:0},ctF={5:0,4:0,3:0,2:0,1:0},ctM={5:0,4:0,3:0,2:0,1:0};
+    all.forEach(r=>{const v=r.raw[q.id];if(v){ct[v]++;(r.gender==='F'?ctF:ctM)[v]++;}});
+    const sc=all.map(r=>r.scored[q.id]||0);
+    const ds=descStats(sc),dsF=descStats(femR.map(r=>r.scored[q.id]||0)),dsM=descStats(maleR.map(r=>r.scored[q.id]||0));
+    const sl=['sb1','sb2','sb3'][q.sec-1],slN=['B','C','D'][q.sec-1];
+    const cid='qc'+q.id;
+    const posP=pctN(ct[5]+ct[4],N);
+    const topV=[5,4,3,2,1].reduce((a,v)=>ct[v]>ct[a]?v:a,5);
+    const interp=`${posP}% of students (SA+A) responded positively. Mean = <b>${fmt(ds.mean)}</b>, SD = <b>${fmt(ds.sd)}</b>, CV = <b>${fmt(ds.cv)}%</b> — ${parseFloat(ds.cv)<30?'responses are relatively homogeneous':'notable variation exists'}. Mode = <b>${lkS[ds.mode]||ds.mode}</b>.`;
+
+    const fRows=[5,4,3,2,1].map((v,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+      <td style="padding:4px 7px;white-space:nowrap;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${lkC[v]};margin-right:4px;vertical-align:middle;"></span>${lkL[v]}</td>
+      <td style="padding:4px 7px;text-align:center;font-weight:700;">${ct[v]}</td>
+      <td style="padding:4px 7px;text-align:center;">${pct(ct[v],N)}</td>
+      <td style="padding:4px 7px;text-align:center;color:#9e2a5a;">${ctF[v]}</td>
+      <td style="padding:4px 7px;text-align:center;color:#1a3a7a;">${ctM[v]}</td>
+    </tr>`).join('');
+
+    const stRows=[
+      ['Mean (M)','المتوسط',fmt(ds.mean),fmt(dsF.mean),fmt(dsM.mean)],
+      ['Std. Error','الخطأ المعياري',fmt(ds.stdErr),fmt(dsF.stdErr),fmt(dsM.stdErr)],
+      ['Median','الوسيط',fmt(ds.median),fmt(dsF.median),fmt(dsM.median)],
+      ['Mode','المنوال',fmt(ds.mode),fmt(dsF.mode),fmt(dsM.mode)],
+      ['Std. Deviation','الانحراف',fmt(ds.sd),fmt(dsF.sd),fmt(dsM.sd)],
+      ['Variance','التباين',fmt(ds.variance),fmt(dsF.variance),fmt(dsM.variance)],
+      ['Kurtosis','التفرطح',fmt(ds.kurt),fmt(dsF.kurt),fmt(dsM.kurt)],
+      ['Skewness','الالتواء',fmt(ds.skew),fmt(dsF.skew),fmt(dsM.skew)],
+      ['Range','المدى',fmt(ds.range),fmt(dsF.range),fmt(dsM.range)],
+      ['Min','أدنى',fmt(ds.min),fmt(dsF.min),fmt(dsM.min)],
+      ['Max','أعلى',fmt(ds.max),fmt(dsF.max),fmt(dsM.max)],
+      ['Sum','المجموع',fmt(ds.sum),fmt(dsF.sum),fmt(dsM.sum)],
+      ['Count (N)','العدد',ds.n,dsF.n,dsM.n],
+    ].map((r,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+      <td style="padding:4px 7px;font-weight:600;color:var(--navy);">${r[0]}</td>
+      <td style="padding:4px 7px;text-align:right;font-family:'Noto Naskh Arabic',serif;color:var(--teal);direction:rtl;">${r[1]}</td>
+      <td style="padding:4px 7px;text-align:center;font-weight:700;">${r[2]}</td>
+      <td style="padding:4px 7px;text-align:center;color:#9e2a5a;">${r[3]}</td>
+      <td style="padding:4px 7px;text-align:center;color:#1a3a7a;">${r[4]}</td>
+    </tr>`).join('');
+
+    charts.push(()=>drawBar(cid,[5,4,3,2,1].map(v=>ct[v]),['SA','A','N','D','SD'],[lkC[5],lkC[4],lkC[3],lkC[2],lkC[1]]));
+
+    h+=`<div class="qres">
+      <div class="ql">Q${q.id}. ${q.en} <span class="sbadge ${sl}">Sec ${slN}</span>${q.rev?'<span class="rtag">REVERSED</span>':''}</div>
+      <div class="qlar">${q.ar}</div>
+
+      <div class="lk-grid">
+        <div>
+          ${slbl('4 & 5 — Frequency Table & Percentages')}
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.68rem;min-width:280px;">
+              <thead><tr style="background:var(--navy);color:#fff;">
+                <th style="padding:4px 7px;text-align:left;min-width:130px;">Response</th>
+                <th style="padding:4px 7px;text-align:center;">Freq.</th>
+                <th style="padding:4px 7px;text-align:center;">%</th>
+                <th style="padding:4px 7px;text-align:center;color:#ffd0e8;">♀</th>
+                <th style="padding:4px 7px;text-align:center;color:#c8d8ff;">♂</th>
+              </tr></thead>
+              <tbody>${fRows}<tr style="background:var(--soft);font-weight:700;">
+                <td style="padding:4px 7px;">Total</td>
+                <td style="padding:4px 7px;text-align:center;">${N}</td><td style="padding:4px 7px;text-align:center;">100%</td>
+                <td style="padding:4px 7px;text-align:center;color:#9e2a5a;">${fem}</td>
+                <td style="padding:4px 7px;text-align:center;color:#1a3a7a;">${male}</td>
+              </tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          ${slbl('6 & 7 — Bar Chart + Line Overlay')}
+          <div class="chart-box"><canvas id="${cid}"></canvas></div>
+        </div>
+      </div>
+
+      <div class="lbar">
+        ${[5,4,3,2,1].map(v=>{const p=pctN(ct[v],N);return`<div class="bseg ${['sa','a','n','d','sd'][[5,4,3,2,1].indexOf(v)]}" style="width:${p}%;min-width:${p>0&&p<6?'3px':'0'}">${p>9?pct(ct[v],N):''}</div>`;}).join('')}
+      </div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;font-size:.62rem;color:var(--muted);margin-bottom:12px;">
+        ${[5,4,3,2,1].map(v=>`<span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${lkC[v]};margin-right:2px;vertical-align:middle;"></span>${lkS[v]}: ${ct[v]} (${pct(ct[v],N)})</span>`).join('')}
+      </div>
+
+      ${slbl('9 — Descriptive Statistics')}
+      <div style="overflow-x:auto;">
+        <table style="min-width:360px;width:100%;border-collapse:collapse;font-size:.67rem;">
+          <thead><tr style="background:var(--navy);color:#fff;">
+            <th style="padding:4px 7px;text-align:left;min-width:100px;">Statistic</th>
+            <th style="padding:4px 7px;text-align:right;min-width:100px;font-family:'Noto Naskh Arabic',serif;">الإحصاء</th>
+            <th style="padding:4px 7px;text-align:center;min-width:55px;">Overall</th>
+            <th style="padding:4px 7px;text-align:center;color:#ffd0e8;min-width:50px;">♀</th>
+            <th style="padding:4px 7px;text-align:center;color:#c8d8ff;min-width:50px;">♂</th>
+          </tr></thead>
+          <tbody>${stRows}</tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:8px;background:#f5f2ea;border:1px solid var(--soft);border-radius:6px;padding:8px 12px;font-size:.72rem;line-height:1.5;">
+        <b style="color:var(--navy);">10 — CV</b> <span style="color:var(--muted);font-size:.63rem;">= SD ÷ Mean × 100</span>&nbsp;&nbsp;
+        <span style="font-weight:700;color:var(--teal);">Overall: ${fmt(ds.cv)}%</span>
+        <span style="color:#9e2a5a;margin-left:10px;">♀ ${fmt(dsF.cv)}%</span>
+        <span style="color:#1a3a7a;margin-left:8px;">♂ ${fmt(dsM.cv)}%</span>
+      </div>
+      <div class="interp"><b>8 & 11 — Interpretation:</b> ${interp}</div>
+    </div>`;
+  });
+
+  /* ════════ SECTION SUMMARIES (B, C, D) ════════ */
+  h+=`<hr class="sdiv"><div class="rsth">Section-Level Summary Statistics <span class="art">ملخص إحصائيات كل قسم</span></div>`;
+
+  [[1,'B','Engagement — التفاعل',[1,2,3,4,5],'#2a5f5f'],
+   [2,'C','Satisfaction — الرضا',[6,7,8,9,10],'#1c2b4a'],
+   [3,'D','Complex Tenses — الأزمنة المعقدة',[11,12,13,14,15],'#5a3a1a']
+  ].forEach(([sec,ltr,title,qIds,col])=>{
+    // aggregate all responses across the 5 questions in this section
+    const secScores=all.map(r=>r.secScore[sec]);
+    const secScoresF=femR.map(r=>r.secScore[sec]);
+    const secScoresM=maleR.map(r=>r.secScore[sec]);
+    const sd=descStats(secScores),sdF=descStats(secScoresF),sdM=descStats(secScoresM);
+    // total frequency across all 5 questions
+    const ct={5:0,4:0,3:0,2:0,1:0};
+    qIds.forEach(qid=>{all.forEach(r=>{const v=r.raw[qid];if(v)ct[v]++;});});
+    const totalResponses=Object.values(ct).reduce((a,b)=>a+b,0);
+    const posP=pctN(ct[5]+ct[4],totalResponses);
+    const secCid='sc-chart-'+sec;
+    charts.push(()=>drawBar(secCid,[5,4,3,2,1].map(v=>ct[v]),['SA','A','N','D','SD'],
+      ['#2a5f5f','#3d8b8b','#8b8b6a','#c0602e','#8b2020']));
+
+    const stRows2=[
+      ['Mean (M)','المتوسط',fmt(sd.mean),fmt(sdF.mean),fmt(sdM.mean)],
+      ['Std. Deviation','الانحراف المعياري',fmt(sd.sd),fmt(sdF.sd),fmt(sdM.sd)],
+      ['Std. Error','الخطأ المعياري',fmt(sd.stdErr),fmt(sdF.stdErr),fmt(sdM.stdErr)],
+      ['Median','الوسيط',fmt(sd.median),fmt(sdF.median),fmt(sdM.median)],
+      ['Mode','المنوال',fmt(sd.mode),fmt(sdF.mode),fmt(sdM.mode)],
+      ['Variance','التباين',fmt(sd.variance),fmt(sdF.variance),fmt(sdM.variance)],
+      ['Kurtosis','التفرطح',fmt(sd.kurt),fmt(sdF.kurt),fmt(sdM.kurt)],
+      ['Skewness','الالتواء',fmt(sd.skew),fmt(sdF.skew),fmt(sdM.skew)],
+      ['Range','المدى',fmt(sd.range),fmt(sdF.range),fmt(sdM.range)],
+      ['Min','أدنى قيمة',fmt(sd.min),fmt(sdF.min),fmt(sdM.min)],
+      ['Max','أعلى قيمة',fmt(sd.max),fmt(sdF.max),fmt(sdM.max)],
+      ['Sum','المجموع',fmt(sd.sum),fmt(sdF.sum),fmt(sdM.sum)],
+      ['Count (N)','العدد',sd.n,sdF.n,sdM.n],
+      ['CV %','معامل التباين',fmt(sd.cv)+'%',fmt(sdF.cv)+'%',fmt(sdM.cv)+'%'],
+    ].map((r,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+      <td style="padding:4px 8px;font-weight:600;color:var(--navy);">${r[0]}</td>
+      <td style="padding:4px 8px;text-align:right;font-family:'Noto Naskh Arabic',serif;color:var(--teal);direction:rtl;">${r[1]}</td>
+      <td style="padding:4px 8px;text-align:center;font-weight:700;">${r[2]}</td>
+      <td style="padding:4px 8px;text-align:center;color:#9e2a5a;">${r[3]}</td>
+      <td style="padding:4px 8px;text-align:center;color:#1a3a7a;">${r[4]}</td>
+    </tr>`).join('');
+
+    h+=`<div class="sec-summary" style="border:2px solid ${col};border-radius:11px;padding:18px 22px;margin-bottom:16px;background:var(--card);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+        <div style="background:${col};color:#fff;border-radius:7px;padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.05em;">SECTION ${ltr}</div>
+        <div style="font-size:.9rem;font-weight:700;color:var(--navy);">${title}</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:.78rem;color:var(--teal);direction:rtl;">(أسئلة ${qIds.join('، ')})</div>
+        <div style="margin-left:auto;background:#f0f4f8;border-radius:6px;padding:5px 12px;font-size:.78rem;">
+          <b style="color:${col};">Avg: ${fmt(sd.mean)}/25</b> &nbsp;|&nbsp; <b style="color:#1a7a3a;">${posP}% positive</b>
+        </div>
+      </div>
+      <div class="lk-grid">
+        <div>
+          ${slbl('Section Frequency (all 5 Qs combined)')}
+          <table style="width:100%;border-collapse:collapse;font-size:.69rem;">
+            <thead><tr style="background:var(--navy);color:#fff;">
+              <th style="padding:4px 8px;">Response</th>
+              <th style="padding:4px 8px;text-align:center;">Count</th>
+              <th style="padding:4px 8px;text-align:center;">%</th>
+            </tr></thead>
+            <tbody>${[5,4,3,2,1].map((v,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+              <td style="padding:4px 8px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${['#2a5f5f','#3d8b8b','#8b8b6a','#c0602e','#8b2020'][i]};margin-right:4px;vertical-align:middle;"></span>${['SA','A','N','D','SD'][i]}</td>
+              <td style="padding:4px 8px;text-align:center;font-weight:700;">${ct[v]}</td>
+              <td style="padding:4px 8px;text-align:center;">${pct(ct[v],totalResponses)}</td>
+            </tr>`).join('')}
+            <tr style="background:var(--soft);font-weight:700;"><td style="padding:4px 8px;">Total</td><td style="padding:4px 8px;text-align:center;">${totalResponses}</td><td style="padding:4px 8px;text-align:center;">100%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          ${slbl('Section Bar Chart')}
+          <div class="chart-box"><canvas id="${secCid}"></canvas></div>
+        </div>
+      </div>
+      ${slbl('Section Descriptive Statistics (Section Score out of 25)')}
+      <div style="overflow-x:auto;margin-top:6px;">
+        <table style="min-width:360px;width:100%;border-collapse:collapse;font-size:.68rem;">
+          <thead><tr style="background:var(--navy);color:#fff;">
+            <th style="padding:4px 8px;text-align:left;">Statistic</th>
+            <th style="padding:4px 8px;text-align:right;font-family:'Noto Naskh Arabic',serif;">الإحصاء</th>
+            <th style="padding:4px 8px;text-align:center;">Overall</th>
+            <th style="padding:4px 8px;text-align:center;color:#ffd0e8;">♀</th>
+            <th style="padding:4px 8px;text-align:center;color:#c8d8ff;">♂</th>
+          </tr></thead>
+          <tbody>${stRows2}</tbody>
+        </table>
+      </div>
+      <div class="interp"><b>Section ${ltr} Interpretation:</b> The mean section score was <b>${fmt(sd.mean)}/25</b> (SD=${fmt(sd.sd)}, CV=${fmt(sd.cv)}%). <b>${posP}%</b> of total responses across all 5 questions in this section were positive (SA+A). ${parseFloat(sd.cv)<30?'Responses are relatively homogeneous.':'Notable variation exists across responses.'}</div>
+    </div>`;
+  });
+
+  /* ════════ OVERALL SUMMARY (all 15 Qs) ════════ */
+  h+=`<hr class="sdiv"><div class="rsth">Overall Statistical Summary — All 15 Questions <span class="art">الملخص الإحصائي الإجمالي — جميع الأسئلة</span></div>`;
+  // Pool all scored responses across all 15 questions
+  const allScores=[];
+  const allScoresF=[];
+  const allScoresM=[];
+  const overallCt={5:0,4:0,3:0,2:0,1:0};
+  Qs.forEach(q=>{
+    all.forEach(r=>{const sc=r.scored[q.id];if(sc){allScores.push(sc);}const rv=r.raw[q.id];if(rv)overallCt[rv]++;});
+    femR.forEach(r=>{const sc=r.scored[q.id];if(sc)allScoresF.push(sc);});
+    maleR.forEach(r=>{const sc=r.scored[q.id];if(sc)allScoresM.push(sc);});
+  });
+  const ovDs=descStats(allScores),ovDsF=descStats(allScoresF),ovDsM=descStats(allScoresM);
+  const ovTot=Object.values(overallCt).reduce((a,b)=>a+b,0);
+  const ovPosP=pctN(overallCt[5]+overallCt[4],ovTot);
+  // Per-question means for ranking
+  const qMeans=Qs.map(q=>{const sc=all.map(r=>r.scored[q.id]||0);const ds2=descStats(sc);return{q,mean:ds2.mean};}).sort((a,b)=>b.mean-a.mean);
+  charts.push(()=>drawBar('overall-chart',Object.values(overallCt).reverse(),[1,2,3,4,5].map(v=>['SD','D','N','A','SA'][v-1]).reverse(),['#2a5f5f','#3d8b8b','#8b8b6a','#c0602e','#8b2020']));
+
+  const ovStRows=[
+    ['Mean (M)','المتوسط الحسابي',fmt(ovDs.mean),fmt(ovDsF.mean),fmt(ovDsM.mean)],
+    ['Std. Error','الخطأ المعياري',fmt(ovDs.stdErr),fmt(ovDsF.stdErr),fmt(ovDsM.stdErr)],
+    ['Median','الوسيط',fmt(ovDs.median),fmt(ovDsF.median),fmt(ovDsM.median)],
+    ['Mode','المنوال',fmt(ovDs.mode),fmt(ovDsF.mode),fmt(ovDsM.mode)],
+    ['Std. Deviation','الانحراف المعياري',fmt(ovDs.sd),fmt(ovDsF.sd),fmt(ovDsM.sd)],
+    ['Variance','التباين',fmt(ovDs.variance),fmt(ovDsF.variance),fmt(ovDsM.variance)],
+    ['Kurtosis','التفرطح',fmt(ovDs.kurt),fmt(ovDsF.kurt),fmt(ovDsM.kurt)],
+    ['Skewness','الالتواء',fmt(ovDs.skew),fmt(ovDsF.skew),fmt(ovDsM.skew)],
+    ['Range','المدى',fmt(ovDs.range),fmt(ovDsF.range),fmt(ovDsM.range)],
+    ['Min','أدنى قيمة',fmt(ovDs.min),fmt(ovDsF.min),fmt(ovDsM.min)],
+    ['Max','أعلى قيمة',fmt(ovDs.max),fmt(ovDsF.max),fmt(ovDsM.max)],
+    ['Sum','المجموع',fmt(ovDs.sum),fmt(ovDsF.sum),fmt(ovDsM.sum)],
+    ['Count (N)','التكرار الكلي',ovDs.n,ovDsF.n,ovDsM.n],
+    ['CV %','معامل التباين',fmt(ovDs.cv)+'%',fmt(ovDsF.cv)+'%',fmt(ovDsM.cv)+'%'],
+  ].map((r,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+    <td style="padding:5px 9px;font-weight:600;color:var(--navy);">${r[0]}</td>
+    <td style="padding:5px 9px;text-align:right;font-family:'Noto Naskh Arabic',serif;color:var(--teal);direction:rtl;">${r[1]}</td>
+    <td style="padding:5px 9px;text-align:center;font-weight:700;">${r[2]}</td>
+    <td style="padding:5px 9px;text-align:center;color:#9e2a5a;">${r[3]}</td>
+    <td style="padding:5px 9px;text-align:center;color:#1a3a7a;">${r[4]}</td>
+  </tr>`).join('');
+
+  h+=`<div class="overall-summary">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+      <div style="flex:1;min-width:140px;background:#e8f5e8;border-radius:9px;padding:14px 16px;text-align:center;">
+        <div style="font-size:1.9rem;font-family:'Playfair Display',serif;color:#1a5a1a;font-weight:700;">${ovPosP}%</div>
+        <div style="font-size:.7rem;font-weight:700;color:#1a5a1a;margin-top:3px;">Overall Positive Rate</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:.7rem;color:#2a5f5f;">نسبة الاستجابات الإيجابية</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#e8eef8;border-radius:9px;padding:14px 16px;text-align:center;">
+        <div style="font-size:1.9rem;font-family:'Playfair Display',serif;color:#1a3a7a;font-weight:700;">${fmt(ovDs.mean)}</div>
+        <div style="font-size:.7rem;font-weight:700;color:#1a3a7a;margin-top:3px;">Overall Mean Score</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:.7rem;color:#2a5f5f;">المتوسط الكلي</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#faf2e8;border-radius:9px;padding:14px 16px;text-align:center;">
+        <div style="font-size:1.9rem;font-family:'Playfair Display',serif;color:#7a5020;font-weight:700;">${fmt(ovDs.sd)}</div>
+        <div style="font-size:.7rem;font-weight:700;color:#7a5020;margin-top:3px;">Std. Deviation</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:.7rem;color:#2a5f5f;">الانحراف المعياري</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#f5f0e8;border-radius:9px;padding:14px 16px;text-align:center;">
+        <div style="font-size:1.9rem;font-family:'Playfair Display',serif;color:#5a3a1a;font-weight:700;">${fmt(ovDs.cv)}%</div>
+        <div style="font-size:.7rem;font-weight:700;color:#5a3a1a;margin-top:3px;">CV (Consistency)</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:.7rem;color:#2a5f5f;">معامل التباين</div>
+      </div>
+    </div>
+
+    <div class="lk-grid" style="margin-bottom:16px;">
+      <div>
+        ${slbl('Overall Response Distribution — All 15 Questions')}
+        <table style="width:100%;border-collapse:collapse;font-size:.7rem;">
+          <thead><tr style="background:var(--navy);color:#fff;">
+            <th style="padding:5px 9px;text-align:left;">Response</th>
+            <th style="padding:5px 9px;text-align:center;">Count</th>
+            <th style="padding:5px 9px;text-align:center;">%</th>
+          </tr></thead>
+          <tbody>${[5,4,3,2,1].map((v,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+            <td style="padding:5px 9px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${['#2a5f5f','#3d8b8b','#8b8b6a','#c0602e','#8b2020'][i]};margin-right:4px;vertical-align:middle;"></span>${['SA أوافق بشدة','A أوافق','N محايد','D لا أوافق','SD لا أوافق بشدة'][i]}</td>
+            <td style="padding:5px 9px;text-align:center;font-weight:700;">${overallCt[v]}</td>
+            <td style="padding:5px 9px;text-align:center;">${pct(overallCt[v],ovTot)}</td>
+          </tr>`).join('')}
+          <tr style="background:var(--soft);font-weight:700;"><td style="padding:5px 9px;">Total Responses</td><td style="padding:5px 9px;text-align:center;">${ovTot}</td><td style="padding:5px 9px;text-align:center;">100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        ${slbl('Overall Distribution Bar Chart')}
+        <div class="chart-box"><canvas id="overall-chart"></canvas></div>
+      </div>
+    </div>
+
+    ${slbl('Overall Descriptive Statistics — All Scored Responses')}
+    <div style="overflow-x:auto;margin-top:6px;">
+      <table style="min-width:380px;width:100%;border-collapse:collapse;font-size:.69rem;">
+        <thead><tr style="background:var(--navy);color:#fff;">
+          <th style="padding:5px 9px;text-align:left;">Statistic</th>
+          <th style="padding:5px 9px;text-align:right;font-family:'Noto Naskh Arabic',serif;">الإحصاء</th>
+          <th style="padding:5px 9px;text-align:center;">Overall</th>
+          <th style="padding:5px 9px;text-align:center;color:#ffd0e8;">♀ Female</th>
+          <th style="padding:5px 9px;text-align:center;color:#c8d8ff;">♂ Male</th>
+        </tr></thead>
+        <tbody>${ovStRows}</tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:14px;">
+      ${slbl('Questions Ranked by Mean Score (Highest to Lowest)')}
+      <table style="width:100%;border-collapse:collapse;font-size:.7rem;margin-top:6px;">
+        <thead><tr style="background:var(--navy);color:#fff;">
+          <th style="padding:5px 9px;text-align:center;">Rank</th>
+          <th style="padding:5px 9px;text-align:left;">Question</th>
+          <th style="padding:5px 9px;text-align:left;">Arabic</th>
+          <th style="padding:5px 9px;text-align:center;">Sec</th>
+          <th style="padding:5px 9px;text-align:center;">Mean</th>
+          <th style="padding:5px 9px;text-align:center;">Rev?</th>
+        </tr></thead>
+        <tbody>${qMeans.map((item,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+          <td style="padding:5px 9px;text-align:center;font-weight:700;">${i+1}</td>
+          <td style="padding:5px 9px;font-size:.67rem;">Q${item.q.id}. ${item.q.en.slice(0,55)}${item.q.en.length>55?'…':''}</td>
+          <td style="padding:5px 9px;font-family:'Noto Naskh Arabic',serif;direction:rtl;font-size:.67rem;">${item.q.ar.slice(0,45)}${item.q.ar.length>45?'…':''}</td>
+          <td style="padding:5px 9px;text-align:center;"><span class="sbadge ${'sb'+item.q.sec}">Sec ${'BCD'[item.q.sec-1]}</span></td>
+          <td style="padding:5px 9px;text-align:center;font-weight:700;color:${item.mean>=4?'#1a7a3a':item.mean>=3?'#7a5020':'#c0392b'};">${fmt(item.mean)}</td>
+          <td style="padding:5px 9px;text-align:center;">${item.q.rev?'<span class="rtag">R</span>':''}</td>
+        </tr>`).join('')}</tbody>
+      </table>
+    </div>
+
+    <div class="interp" style="margin-top:12px;">
+      <b>Overall Interpretation:</b> Across all ${N} university students and all 15 Likert items (${ovTot} total responses), the overall mean was <b>${fmt(ovDs.mean)}/5</b> (SD=${fmt(ovDs.sd)}, CV=${fmt(ovDs.cv)}%). <b>${ovPosP}%</b> of all responses were positive (SA+A), indicating that students generally ${ovPosP>=60?'<b>support</b> the use of timelines in grammar teaching':'have <b>mixed views</b> on timeline-based grammar teaching'}. The highest-rated question was <b>Q${qMeans[0]?.q.id}</b> (M=${fmt(qMeans[0]?.mean)}) and the lowest was <b>Q${qMeans[qMeans.length-1]?.q.id}</b> (M=${fmt(qMeans[qMeans.length-1]?.mean)}).
+    </div>
+  </div>`;
+
+  /* ════════ OPEN-ENDED ════════ */
+  h+=`<hr class="sdiv"><div class="rsth">Open-Ended Qualitative Analysis <span class="art">التحليل النوعي — الأسئلة المقالية</span></div>`;
+
+  function openBlock(qnum,titleEn,titleAr,responses){
+    const cnt={positive:0,negative:0,mixed:0,neutral:0};
+    const tot=responses.length||1;
+    const qrows=[['Positive — إيجابي','positive'],['Negative — سلبي','negative'],['Mixed — مختلط','mixed'],['Neutral — محايد','neutral']]
+      .map((e,i)=>`<tr style="${i%2?'background:#faf8f3':''}" id="qrow-${qnum}-${e[1]}">
+        <td style="padding:5px 8px;">${e[0]}</td>
+        <td style="padding:5px 8px;text-align:center;font-weight:700;" id="qc-${qnum}-${e[1]}">${cnt[e[1]]}</td>
+        <td style="padding:5px 8px;text-align:center;" id="qp-${qnum}-${e[1]}">${pct(cnt[e[1]],tot)}</td>
+      </tr>`).join('');
+    const items=responses.map((r,i)=>`<div class="aitem" id="ai-item-${qnum}-${i}">
+      <div class="anm">ID: ${r.id||'—'} &middot; ${r.gender==='F'?'Female':'Male'} &middot; ${r.faculty||'—'} &middot; Yr${r.year||'?'}
+        <span class="sent-badge loading" style="background:#d4e8f5;color:#3a5a7a;">⏳ Analyzing…</span>
+      </div>
+      <div class="atx">${r.text}</div>
+    </div>`).join('')||'<div style="color:var(--muted);padding:10px;font-size:.8rem;">No responses yet.</div>';
+
+    const bcid='bc-'+qnum,pcid='pc-'+qnum;
+    charts.push(()=>drawBar(bcid,[0,0,0,0],['Pos','Neg','Mix','Neu'],['#1a7a3a','#7a1a1a','#7a5a1a','#5a5a5a']));
+    charts.push(()=>drawPie(pcid,[0,0,0,responses.length],['#1a7a3a','#7a1a1a','#7a5a1a','#5a5a5a'],responses.length));
+
+    return`<div class="oac" id="oac-${qnum}">
+      <div style="font-size:.83rem;font-weight:700;color:var(--navy);margin-bottom:2px;">${qnum} — ${titleEn}</div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:.8rem;color:var(--teal);direction:rtl;margin-bottom:12px;">${titleAr}</div>
+      <div class="qual-grid">
+        <div>
+          ${slbl('12 — Qualitative Comments Frequency Table')}
+          <table style="width:100%;border-collapse:collapse;font-size:.71rem;">
+            <thead><tr style="background:var(--navy);color:#fff;">
+              <th style="padding:5px 8px;text-align:left;">Sentiment</th>
+              <th style="padding:5px 8px;text-align:center;">Freq.</th>
+              <th style="padding:5px 8px;text-align:center;">%</th>
+            </tr></thead>
+            <tbody>${qrows}<tr style="background:var(--soft);font-weight:700;">
+              <td style="padding:5px 8px;">Total</td>
+              <td style="padding:5px 8px;text-align:center;" id="qtotal-${qnum}">${responses.length}</td>
+              <td style="padding:5px 8px;text-align:center;">100%</td>
+            </tr></tbody>
+          </table>
+          <div style="margin-top:12px;">${slbl('13 — Bar Chart')}
+            <div class="chart-box"><canvas id="${bcid}"></canvas></div>
+          </div>
+        </div>
+        <div>
+          ${slbl('14 — Sentiment Pie Chart')}
+          <div class="pie-box"><canvas id="${pcid}"></canvas></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;font-size:.63rem;margin-top:6px;">
+            ${[['#1a7a3a','Positive إيجابي'],['#7a1a1a','Negative سلبي'],['#7a5a1a','Mixed مختلط'],['#5a5a5a','Neutral محايد']]
+              .map(c=>`<span style="display:flex;align-items:center;gap:3px;"><span style="width:9px;height:9px;border-radius:50%;background:${c[0]};display:inline-block;"></span>${c[1]}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div id="summary-${qnum}" style="margin-bottom:8px;"></div>
+      <div style="margin-top:4px;">${items}</div>
+    </div>`;
+  }
+
+  const q16r=all.map(r=>r.q16?{text:r.q16,id:r.id,gender:r.gender,faculty:r.faculty,year:r.year}:null).filter(Boolean);
+  const q17r=all.map(r=>r.q17?{text:r.q17,id:r.id,gender:r.gender,faculty:r.faculty,year:r.year}:null).filter(Boolean);
+  h+=openBlock('Q16','Suggestions for Improvement','اقتراحات لتحسين استخدام الخط الزمني (التايم لاين)',q16r);
+  h+=openBlock('Q17','Challenges and Difficulties','التحديات والصعوبات التي واجهها الطلاب',q17r);
+
+  /* ════════ SUGGESTIONS SECTION ════════ */
+  h+=`<hr class="sdiv"><div class="rsth">Students' Suggestions Analysis <span class="art">تحليل اقتراحات الطلاب</span></div>
+  <div class="demo-blk">
+    ${slbl('15 — Suggestions Table (extracted from Q16 by AI)')}
+    <div id="suggestions-container"><div style="color:var(--muted);font-size:.8rem;padding:10px;">⏳ Will be generated after AI analyses Q16…</div></div>
+    <div style="margin-top:14px;">${slbl('16 — Suggestions Chart + Discussion')}
+      <div class="chart-box" style="max-width:520px;"><canvas id="suggestions-chart"></canvas></div>
+      <div id="suggestions-discussion" style="display:none;margin-top:10px;" class="interp"></div>
+    </div>
+  </div>`;
+
+  /* ════════ INDIVIDUAL TABLE ════════ */
+  const vl=v=>({5:'SA',4:'A',3:'N',2:'D',1:'SD'}[v]||'—');
+  h+=`<hr class="sdiv"><div class="rsth">Individual Responses <span class="art">إجابات الطلاب</span></div>
+  <div style="font-size:.72rem;color:var(--muted);margin-bottom:8px;">🔴 Red rows = non-university (excluded from statistics). Use ✕ to delete individual responses.</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th>#</th><th>✕</th><th>ID</th><th>Uni?</th><th>Gender</th><th>Age</th><th>Yr</th><th>Faculty</th>
+      ${Qs.map(q=>`<th title="${q.en}">Q${q.id}</th>`).join('')}
+      <th>SecB</th><th>SecC</th><th>SecD</th><th>Total</th>
+    </tr></thead>
+    <tbody>${rawAll.map((r,i)=>{
+      const isU=r.isUniStudent==='yes';
+      return`<tr style="${isU?'':'background:#fff0f0;'}">
+        <td>${i+1}</td>
+        <td><button onclick="deleteEntry(${i})" style="background:var(--danger);color:#fff;border:none;border-radius:4px;padding:2px 7px;font-size:.62rem;cursor:pointer;">✕</button></td>
+        <td><b>${r.id||'—'}</b></td>
+        <td style="text-align:center;">${isU?'✅':'❌'}</td>
+        <td><span class="gb ${r.gender==='F'?'f':'m'}">${r.gender==='F'?'F':'M'}</span></td>
+        <td>${r.age||'—'}</td><td>Y${r.year||'?'}</td>
+        <td style="font-size:.64rem;">${(r.faculty||'—').slice(0,7)}</td>
+        ${isU?Qs.map(q=>`<td class="vc"><span class="v${r.raw[q.id]}">${vl(r.raw[q.id])}</span></td>`).join('')
+            :`<td colspan="${Qs.length}" style="text-align:center;font-size:.63rem;color:#c0392b;font-style:italic;">excluded — not university</td>`}
+        ${isU?`<td class="sc">${r.secScore[1]}/25</td><td class="sc">${r.secScore[2]}/25</td><td class="sc">${r.secScore[3]}/25</td><td class="tc">${r.totalScore}/75</td>`:''}
+      </tr>`;
+    }).join('')}</tbody>
+  </table></div>`;
+
+  /* ════════ INJECT + DRAW ════════ */
+  c.innerHTML=h;
+  // Draw charts after DOM paint
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    charts.forEach(fn=>fn());
+  }));
+  // AI
+  if(q16r.length)analyzeWithAI('Q16',q16r,true);
+  if(q17r.length)analyzeWithAI('Q17',q17r,false);
+}
+
+/* ──────────────────────────────────────────────
+   AI SENTIMENT ANALYSIS
+   Uses claude-haiku-4-5 for speed
+────────────────────────────────────────────── */
+const sm_styles={
+  positive:{bg:'#d4f5e0',tc:'#1a7a3a',lbl:'✅ Positive إيجابي'},
+  negative:{bg:'#f5d4d4',tc:'#7a1a1a',lbl:'⚠️ Negative سلبي'},
+  mixed:{bg:'#f5ecd4',tc:'#7a5a1a',lbl:'🔄 Mixed مختلط'},
+  neutral:{bg:'#ebebeb',tc:'#5a5a5a',lbl:'➖ Neutral محايد'},
+};
+
+async function analyzeWithAI(qnum,responses,doSuggestions){
+  if(!responses||!responses.length)return;
+  
+  // Show spinner in the section
+  const sumEl=document.getElementById('summary-'+qnum);
+  if(sumEl)sumEl.innerHTML='<div style="color:var(--muted);font-size:.78rem;padding:6px 0;">🤖 AI is analyzing responses… (this may take 10-30 seconds)</div>';
+  
+  // Process all batches in PARALLEL for maximum speed
+  const BATCH=20;
+  const allSentiments=[];
+  const allSuggestions=[];
+
+  // Build all batches
+  const batches=[];
+  for(let start=0;start<responses.length;start+=BATCH){
+    batches.push({start,batch:responses.slice(start,start+BATCH)});
+  }
+
+  // Single batch processor
+  async function processBatch({start,batch}){
+    const texts=batch.map((r,i)=>`${start+i+1}. "${r.text.replace(/"/g,"'")}"`).join('\n');
+    const prompt=doSuggestions
+      ?`You are analyzing student survey responses about using timelines (التايم لاين) in English grammar lessons.
+Task: For EACH numbered response below, do TWO things:
+1. Classify sentiment: positive / negative / mixed / neutral
+2. Extract suggestion theme (3-5 words in English) if student suggests improvement, else null
+
+IMPORTANT: Return ONLY valid JSON, no explanation, no markdown:
+{"sentiments":["positive","negative",...],"suggestions":["More practice activities",null,...]}
+The arrays must have EXACTLY ${batch.length} items each.
+
+Responses:
+${texts}`
+      :`Classify each student response sentiment as exactly one of: positive negative mixed neutral
+Return ONLY a JSON array with EXACTLY ${batch.length} items. No explanation, no markdown:
+["positive","neutral",...]
+
+Responses:
+${texts}`;
+
+    try{
+      const res=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:800,messages:[{role:'user',content:prompt}]})
+      });
+      if(!res.ok){return{start,sentBatch:batch.map(()=>'neutral'),suggBatch:batch.map(()=>null)};}
+      const data=await res.json();
+      if(data.error){return{start,sentBatch:batch.map(()=>'neutral'),suggBatch:batch.map(()=>null)};}
+      const rawText=data.content.map(i=>i.text||'').join('').trim();
+      const jsonMatch=rawText.match(/\{[\s\S]*\}|\[[\s\S]*\]/);
+      if(!jsonMatch){return{start,sentBatch:batch.map(()=>'neutral'),suggBatch:batch.map(()=>null)};}
+      const parsed=JSON.parse(jsonMatch[0]);
+      const sentBatch=doSuggestions?(parsed.sentiments||[]):parsed;
+      const suggBatch=doSuggestions?(parsed.suggestions||[]):[];
+      return{start,sentBatch,suggBatch};
+    }catch(err){
+      console.error('Batch error:',err);
+      return{start,sentBatch:batch.map(()=>'neutral'),suggBatch:batch.map(()=>null)};
+    }
+  }
+
+  // Run ALL batches in parallel
+  const results=await Promise.all(batches.map(processBatch));
+
+  // Merge results in order and update badges
+  results.sort((a,b)=>a.start-b.start).forEach(({start,sentBatch,suggBatch})=>{
+    sentBatch.forEach(s=>allSentiments.push(s));
+    if(doSuggestions)suggBatch.forEach(s=>allSuggestions.push(s));
+    sentBatch.forEach((s,i)=>{
+      const globalI=start+i;
+      const item=document.getElementById(`ai-item-${qnum}-${globalI}`);
+      if(!item)return;
+      const badge=item.querySelector('.sent-badge');
+      const st=sm_styles[s]||sm_styles.neutral;
+      if(badge){badge.style.background=st.bg;badge.style.color=st.tc;badge.textContent=st.lbl;}
+    });
+  });
+  
+  // ── Count sentiments ──
+  const counts={positive:0,negative:0,mixed:0,neutral:0};
+  allSentiments.forEach(s=>{if(counts[s]!==undefined)counts[s]++;});
+  const tot=allSentiments.length||1;
+  
+  // Update frequency table
+  ['positive','negative','mixed','neutral'].forEach(s=>{
+    const cc=document.getElementById(`qc-${qnum}-${s}`);
+    const cp=document.getElementById(`qp-${qnum}-${s}`);
+    if(cc)cc.textContent=counts[s];
+    if(cp)cp.textContent=pct(counts[s],tot);
+  });
+  const totEl=document.getElementById(`qtotal-${qnum}`);
+  if(totEl)totEl.textContent=tot;
+  
+  // Update summary badges
+  if(sumEl)sumEl.innerHTML=`<div style="display:flex;gap:7px;flex-wrap:wrap;font-size:.7rem;margin:6px 0;">
+    ${Object.entries(counts).map(([s,c])=>`<span style="background:${sm_styles[s].bg};color:${sm_styles[s].tc};border-radius:20px;padding:3px 10px;font-weight:700;">${sm_styles[s].lbl}: ${c} (${pct(c,tot)})</span>`).join('')}
+  </div>`;
+  
+  // Redraw charts
+  requestAnimationFrame(()=>{
+    drawBar(`bc-${qnum}`,[counts.positive,counts.negative,counts.mixed,counts.neutral],['Pos','Neg','Mix','Neu'],['#1a7a3a','#7a1a1a','#7a5a1a','#5a5a5a']);
+    drawPie(`pc-${qnum}`,[counts.positive,counts.negative,counts.mixed,counts.neutral],['#1a7a3a','#7a1a1a','#7a5a1a','#5a5a5a'],counts.positive);
+  });
+  
+  // ── Suggestions (Q16 only) ──
+  if(doSuggestions&&allSuggestions.length){
+    const sf={};
+    allSuggestions.forEach(s=>{if(s&&s!==null&&s!=='null'){const k=String(s).trim();if(k.length>1)sf[k]=(sf[k]||0)+1;}});
+    const sr=Object.entries(sf).sort((a,b)=>b[1]-a[1]);
+    const stot=sr.reduce((a,b)=>a+b[1],0)||1;
+    
+    const cont=document.getElementById('suggestions-container');
+    if(cont){
+      if(sr.length){
+        cont.innerHTML=`
+          <div style="font-size:.72rem;color:var(--muted);margin-bottom:8px;">AI extracted <b>${sr.length}</b> distinct suggestion themes from ${tot} responses.</div>
+          <table style="width:100%;border-collapse:collapse;font-size:.72rem;">
+            <thead><tr style="background:var(--navy);color:#fff;">
+              <th style="padding:6px 9px;text-align:left;">Suggestion Theme / الاقتراح</th>
+              <th style="padding:6px 9px;text-align:center;">Freq.</th>
+              <th style="padding:6px 9px;text-align:center;">%</th>
+            </tr></thead>
+            <tbody>${sr.map((r,i)=>`<tr style="${i%2?'background:#faf8f3':''}">
+              <td style="padding:6px 9px;">${r[0]}</td>
+              <td style="padding:6px 9px;text-align:center;font-weight:700;">${r[1]}</td>
+              <td style="padding:6px 9px;text-align:center;">${pct(r[1],stot)}</td>
+            </tr>`).join('')}
+            <tr style="background:var(--soft);font-weight:700;">
+              <td style="padding:6px 9px;">Total</td>
+              <td style="padding:6px 9px;text-align:center;">${stot}</td>
+              <td style="padding:6px 9px;text-align:center;">100%</td>
+            </tr></tbody>
+          </table>`;
+        
+        requestAnimationFrame(()=>{
+          drawBar('suggestions-chart',
+            sr.slice(0,10).map(r=>r[1]),
+            sr.slice(0,10).map(r=>r[0].length>12?r[0].slice(0,11)+'…':r[0]),
+            ['#2a5f5f','#1c2b4a','#b8923a','#9e2a5a','#3d8b8b','#5a3a1a','#3a1a5a','#8b2020','#2a7a2a','#7a2a2a']);
+        });
+        
+        const disc=document.getElementById('suggestions-discussion');
+        if(disc){
+          disc.style.display='block';
+          const topSug=sr[0]?sr[0][0]:'various improvements';
+          const topPct=sr[0]?pct(sr[0][1],stot):'—';
+          disc.innerHTML=`<b>Discussion — اقتراحات الطلاب:</b> The AI analysis of ${tot} student responses to Q16 identified <b>${sr.length} distinct suggestion themes</b>. The most frequently cited improvement was "<b>${topSug}</b>" (${topPct} of suggestions). These findings indicate that students have concrete ideas for enhancing timeline-based grammar instruction. ${counts.positive>counts.negative?'The majority of students expressed positive attitudes toward timelines, suggesting strong overall acceptance.':'Students show mixed feelings, highlighting areas for targeted improvement.'} <span style="font-family:\'Noto Naskh Arabic\',serif;direction:rtl;display:block;margin-top:4px;color:var(--teal);">أبرز اقتراحات الطلاب: ${sr.slice(0,3).map(r=>r[0]).join(' — ')}</span>`;
+        }
+      }else{
+        cont.innerHTML='<div style="color:var(--muted);font-size:.78rem;padding:10px;">No specific suggestions were extracted from the responses.</div>';
+      }
+    }
+  }
+}
+
+updP();
+</script>
+</body>
+</html>
